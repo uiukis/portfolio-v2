@@ -345,7 +345,7 @@ src/
 ## Comandos
 
 ```bash
-cd ai-portfolio
+cd portfolio-v2
 npm run dev      # http://localhost:3000
 npm run build    # Production build
 npm run start    # Serve production
