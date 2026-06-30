@@ -1,6 +1,6 @@
-# AI Portfolio — Documentação Completa
+# portfolio-v2 — Documentação Completa
 
-> Portfólio premium para Technical Lead em AI Engineering & Full Stack Systems.
+> Portfólio pessoal de Wilker Quirino — Technical Lead em AI Engineering & Full Stack Systems.
 
 ---
 
