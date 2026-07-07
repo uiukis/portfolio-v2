@@ -211,4 +211,8 @@ export const pt: Dictionary = {
     builtWith: "Feito com Next.js, React Three Fiber & Framer Motion.",
     belfry: "Engineered from the Belfry.",
   },
+  devBanner: {
+    label: "WIP",
+    message: "Portfólio em desenvolvimento — conteúdo e layout sujeitos a alterações.",
+  },
 };

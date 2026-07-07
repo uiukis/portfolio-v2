@@ -109,6 +109,10 @@ export type Dictionary = {
     builtWith: string;
     belfry: string;
   };
+  devBanner: {
+    label: string;
+    message: string;
+  };
 };
 
 export type Dictionaries = Record<Locale, Dictionary>;

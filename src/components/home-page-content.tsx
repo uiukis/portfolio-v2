@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { Header } from "@/components/layout/header";
+import { DevBanner } from "@/components/layout/dev-banner";
 import { Footer } from "@/components/layout/footer";
 import { AmbientBackground } from "@/components/effects/ambient-background";
 import { CursorGlow } from "@/components/effects/cursor-glow";
@@ -48,6 +49,7 @@ export function HomePageContent() {
       <CursorGlow />
       <ScrollProgress />
 
+      <DevBanner />
       <Header />
       <main id="main-content">
         <HeroSection />

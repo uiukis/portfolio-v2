@@ -60,17 +60,19 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} — ${pt.meta.title}`,
     description: pt.meta.description,
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  robots: siteConfig.isInDevelopment
+    ? { index: false, follow: false }
+    : {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-video-preview": -1,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+        },
+      },
   alternates: {
     canonical: siteConfig.url,
     languages: {

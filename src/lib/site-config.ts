@@ -4,6 +4,7 @@ export const siteConfig = {
   email: "hello@wilkerquirino.dev",
   linkedin: "https://linkedin.com/in/wilkerquirino",
   github: "https://github.com/wilkerquirino",
+  isInDevelopment: true,
 } as const;
 
 export const navHrefs = [
