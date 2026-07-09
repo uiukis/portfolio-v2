@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Brain, Network, Layers, Compass } from "lucide-react";
+import { Brain, Network, Layers, Plug } from "lucide-react";
 import { capabilityIcons } from "@/lib/site-config";
 import { useI18n } from "@/providers/i18n-provider";
 import { Section } from "@/components/layout/section";
@@ -12,7 +12,7 @@ const iconMap = {
   brain: Brain,
   layers: Layers,
   network: Network,
-  compass: Compass,
+  plug: Plug,
 } as const;
 
 export function CapabilitiesSection() {

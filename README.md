@@ -2,7 +2,7 @@
 
 > **WIP** — Portfólio em desenvolvimento ativo. Conteúdo, layout e copy ainda estão sendo refinados.
 
-Portfólio pessoal de **Wilker Quirino** — Technical Lead em AI Engineering & Full Stack Systems.
+Portfólio pessoal de **Wilker Quirino** — Full Stack & AI Engineering.
 
 Single-page em Next.js com hero 3D, i18n PT/EN, motion system e case studies de sistemas em produção (Overmind, Mútua-360, Vidi, Office).
 

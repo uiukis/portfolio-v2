@@ -1,0 +1,141 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.8/schema.json
+cv:
+  name: Wilker Quirino
+  headline: Full Stack & AI Engineer
+  location: Fortaleza, CE, Brasil
+  email: wilker.quirino99@gmail.com
+  phone: "+55 85 99428-6518"
+  website: https://uiukis.vercel.app
+  social_networks:
+    - network: LinkedIn
+      username: wilkerquirino
+    - network: GitHub
+      username: uiukis
+  sections:
+    Resumo profissional:
+      - Full Stack & AI Engineer com 4+ anos entregando aplicações web, APIs e produtos digitais em produção. Atuo end-to-end em **NestJS**, **Next.js**, **TypeScript** e **Prisma** — de dashboards operacionais e integração com legado (SQL Server) a pipelines com IA, agentes, **MCP** e **LLMs** em fluxos reais de negócio. Experiência com arquitetura event-driven (**Kafka**, **BullMQ**), webhooks, e2e com **Playwright** e sistemas enterprise e fintech.
+    Experiência profissional:
+      - company: Vidi Tech
+        position: Full Stack & AI Engineer
+        start_date: 2026-05
+        end_date: present
+        location: Fortaleza, CE (Híbrido)
+        summary: Freelance
+        highlights:
+          - Desenvolvimento do ecossistema backend e web com APIs REST, dashboards admin e integrações do produto.
+          - Gateway Pix multi-provider (Firebanking, SAQ, Simpay) com api-core stateless, webhooks cash-in/out e processamento assíncrono com filas.
+          - Auth multi-tenant, fluxos financeiros e tratamento de falhas em ambiente de alta confiabilidade.
+          - "Stack: NestJS, BullMQ, Prisma, PostgreSQL, Next.js, TypeScript"
+      - company: s4S — Fábrica de Software
+        position: Full Stack & AI Engineer
+        start_date: 2025-08
+        end_date: present
+        location: Fortaleza, CE (Híbrido)
+        summary: Freelance
+        highlights:
+          - Entrega full stack em projetos enterprise com NestJS (use-cases + Prisma) e Next.js com contratos REST documentados (Swagger).
+          - "Mútua-360: integração com legado SQL Server, 19 repositórios, 37 consumers Kafka e pipeline de análise documental com IA."
+          - Integrações com agentes de IA, MCP e LLMs em automações e fluxos operacionais.
+          - Participação em definições de arquitetura, padrões de código e revisões técnicas em ecossistema multi-repo.
+          - "Stack: NestJS, Next.js, Kafka, Prisma, Playwright, TypeScript"
+      - company: Cometa Supermercados
+        position: Analista de Desenvolvimento de Sistemas
+        start_date: 2023-07
+        end_date: 2025-07
+        location: Fortaleza, CE
+        summary:
+        highlights:
+          - Desenvolvimento de sistemas corporativos utilizados por **38 lojas** da rede.
+          - Criação de aplicação de DRE Gerencial, centralizando receitas e despesas e reduzindo processos manuais.
+          - Implementação de API de relatórios de vendas para análise estratégica e tomada de decisão.
+          - Atuação em aplicações mobile com Flutter para manutenção e novas funcionalidades.
+          - "Stack: TypeScript, Node.js, React, SQL Server, Oracle, Flutter"
+      - company: Reali Imobiliária
+        position: Desenvolvedor Web e Mobile
+        start_date: 2021-12
+        end_date: 2023-05
+        location: Fortaleza, CE
+        summary:
+        highlights:
+          - Desenvolvimento de sistemas internos para otimização de processos e experiência do cliente.
+          - Aplicação de Gerenciamento de Propriedades centralizando imóveis, clientes e transações.
+          - Desenvolvimento e manutenção de aplicativos mobile com React Native.
+          - "Stack: TypeScript, React, Next.js, React Native"
+      - company: Rodobank
+        position: Estágio em Desenvolvimento / QA Tester
+        start_date: 2021-02
+        end_date: 2021-04
+        location: Fortaleza, CE
+        summary:
+        highlights:
+          - Desenvolvimento de funcionalidades internas e testes de qualidade da plataforma.
+          - "Stack: PHP, Postman"
+    Projetos pessoais:
+      - name: Overmind — AI Agent Workspace
+        start_date:
+        end_date: present
+        location: Projeto solo · pessoal
+        summary: Ecossistema próprio de engenharia com IA — concepção, arquitetura e implementação end-to-end.
+        highlights:
+          - Control plane de agentes com runtime Hermes (stdio/SSE), approvals human-in-the-loop e audit trail.
+          - Cockpit 3D em React Three Fiber com kanban, mission control e persistência de missões.
+          - "Stack: NestJS, Next.js, Prisma, R3F, TypeScript"
+      - name: Office — Plataforma B2B2C de Assinaturas
+        start_date:
+        end_date: present
+        location: Projeto solo · freelance
+        summary: Produto próprio B2B2C — do backend ao dashboard operacional, sem equipe dedicada.
+        highlights:
+          - Assinaturas, billing, catálogo, RBAC e hierarquia multi-nível de parceiros.
+          - 28 rotas de dashboard, integração WhatsApp (Evolution API) e e2e Playwright nos fluxos críticos.
+          - "Stack: NestJS, Next.js, Prisma, PostgreSQL, TypeScript"
+    Projetos em clientes:
+      - name: Mútua-360 — Modernização CIAP
+        start_date: 2025-08
+        end_date: present
+        location: s4S · cliente enterprise
+        summary: Plataforma de mutualismo CREA entregue no ecossistema S4S.
+        highlights:
+          - 19 repositórios, 7 backends NestJS e integração com legado SQL Server.
+          - 37 consumers Kafka e pipeline de análise documental com IA.
+      - name: Vidi — Pix Gateway
+        start_date: 2026-05
+        end_date: present
+        location: Vidi Tech · fintech
+        summary: Gateway Pix multi-provider em produção.
+        highlights:
+          - Api-core stateless, webhooks cash-in/out e filas assíncronas (Firebanking, SAQ, Simpay).
+          - Auth multi-tenant e dashboards admin para operação financeira.
+    Formação acadêmica:
+      - institution: Universidade Estácio de Sá
+        area: Análise e Desenvolvimento de Sistemas
+        degree:
+        start_date: 2019
+        end_date: 2021
+        location: Brasil
+        summary:
+        highlights:
+    Tecnologias:
+      - label: Frontend
+        details: React, Next.js, Tailwind CSS
+      - label: Backend
+        details: NestJS, Node.js, REST, Swagger
+      - label: Mobile
+        details: React Native, Flutter
+      - label: Dados
+        details: PostgreSQL, Prisma, SQL Server, Oracle
+      - label: Async / integração
+        details: Kafka, BullMQ, webhooks
+      - label: IA
+        details: Agentes, MCP, LLMs, pipelines documentais
+      - label: Qualidade
+        details: Playwright, Postman
+      - label: Ferramentas
+        details: Git, GitHub, GitFlow, Jira
+design:
+  theme: engineeringresumes
+locale:
+  language: portuguese
+settings:
+  current_date: today
+  pdf_title: Wilker Quirino — CV

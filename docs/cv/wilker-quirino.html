@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wilker Quirino — Currículo</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 18mm 16mm;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10.5pt;
+        line-height: 1.35;
+        color: #111;
+        background: #fff;
+      }
+
+      h1 {
+        font-size: 20pt;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        margin-bottom: 4px;
+      }
+
+      .subtitle {
+        font-size: 11pt;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+
+      .contact {
+        font-size: 10pt;
+        margin-bottom: 14px;
+      }
+
+      .section {
+        margin-top: 12px;
+      }
+
+      .section-title {
+        font-size: 10.5pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 6px;
+      }
+
+      .summary {
+        text-align: justify;
+      }
+
+      .job {
+        margin-top: 8px;
+      }
+
+      .job-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: baseline;
+        margin-bottom: 2px;
+      }
+
+      .job-title {
+        font-weight: 700;
+      }
+
+      .job-period {
+        white-space: nowrap;
+        font-weight: 700;
+      }
+
+      .job-meta {
+        font-style: italic;
+        margin-bottom: 3px;
+      }
+
+      ul {
+        margin: 2px 0 4px 16px;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 2px;
+      }
+
+      .tech-line {
+        margin-top: 2px;
+        margin-bottom: 2px;
+      }
+
+      .tech-line strong {
+        font-weight: 700;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px 18px;
+      }
+
+      .project {
+        margin-top: 6px;
+      }
+
+      .project-name {
+        font-weight: 700;
+      }
+
+      .links {
+        font-size: 9.5pt;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>WILKER QUIRINO</h1>
+    <p class="subtitle">Full Stack &amp; AI Engineer</p>
+    <p class="contact">
+      Brasil &bull; (85) 99428-6518 &bull; wilker.quirino99@gmail.com
+    </p>
+    <p class="links">
+      linkedin.com/in/wilkerquirino &bull; github.com/uiukis &bull; uiukis.vercel.app
+    </p>
+
+    <section class="section">
+      <h2 class="section-title">Resumo profissional</h2>
+      <p class="summary">
+        Full Stack &amp; AI Engineer com 4+ anos entregando aplicações web, APIs e produtos
+        digitais em produção. Atuo end-to-end em NestJS, Next.js, TypeScript e Prisma — de
+        dashboards operacionais e integração com legado (SQL Server) a pipelines com IA,
+        agentes, MCP e LLMs em fluxos reais de negócio. Experiência com arquitetura
+        event-driven (Kafka, BullMQ), webhooks, e2e com Playwright e sistemas enterprise e
+        fintech. Foco em código claro, arquitetura desacoplada e entrega consistente.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Experiência profissional</h2>
+
+      <article class="job">
+        <div class="job-header">
+          <span class="job-title">Full Stack &amp; AI Engineer, Vidi Tech</span>
+          <span class="job-period">Mai 2026 – Atual</span>
+        </div>
+        <p class="job-meta">Freelance &bull; Fortaleza, CE (Híbrido)</p>
+        <ul>
+          <li>
+            Desenvolvimento do ecossistema backend e web: APIs REST, dashboards admin e
+            integrações do produto.
+          </li>
+          <li>
+            Gateway Pix multi-provider (Firebanking, SAQ, Simpay): api-core stateless,
+            webhooks cash-in/out e processamento assíncrono com filas.
+          </li>
+          <li>
+            Auth multi-tenant, fluxos financeiros e tratamento de falhas em ambiente de
+            alta confiabilidade.
+          </li>
+        </ul>
+        <p class="tech-line">
+          <strong>Tecnologias:</strong> NestJS, BullMQ, Prisma, PostgreSQL, Next.js,
+          TypeScript
+        </p>
+      </article>
+
+      <article class="job">
+        <div class="job-header">
+          <span class="job-title">Full Stack &amp; AI Engineer, s4S – Fábrica de Software</span>
+          <span class="job-period">Ago 2025 – Atual</span>
+        </div>
+        <p class="job-meta">Freelance &bull; Fortaleza, CE (Híbrido)</p>
+        <ul>
+          <li>
+            Entrega full stack em projetos enterprise: NestJS (use-cases + Prisma) e Next.js
+            com contratos REST documentados (Swagger).
+          </li>
+          <li>
+            Mútua-360: integração com legado SQL Server, 19 repositórios, 37 consumers Kafka
+            e pipeline de análise documental com IA.
+          </li>
+          <li>
+            Integrações com agentes de IA, MCP e LLMs em automações e fluxos operacionais.
+          </li>
+          <li>
+            Participação em definições de arquitetura, padrões de código e revisões técnicas
+            em ecossistema multi-repo.
+          </li>
+        </ul>
+        <p class="tech-line">
+          <strong>Tecnologias:</strong> NestJS, Next.js, Kafka, Prisma, Playwright, TypeScript
+        </p>
+      </article>
+
+      <article class="job">
+        <div class="job-header">
+          <span class="job-title">Analista de Desenvolvimento de Sistemas, Cometa Supermercados</span>
+          <span class="job-period">Jul 2023 – Jul 2025</span>
+        </div>
+        <p class="job-meta">Tempo integral &bull; Fortaleza, CE</p>
+        <ul>
+          <li>
+            Desenvolvimento de sistemas corporativos utilizados por 38 lojas da rede.
+          </li>
+          <li>
+            Criação de aplicação de DRE Gerencial, centralizando receitas e despesas e
+            reduzindo processos manuais.
+          </li>
+          <li>
+            Implementação de API de relatórios de vendas para análise estratégica e tomada
+            de decisão.
+          </li>
+          <li>
+            Atuação em aplicações mobile com Flutter: manutenção e novas funcionalidades.
+          </li>
+        </ul>
+        <p class="tech-line">
+          <strong>Tecnologias:</strong> TypeScript, Node.js, React, SQL Server, Oracle, Flutter
+        </p>
+      </article>
+
+      <article class="job">
+        <div class="job-header">
+          <span class="job-title">Desenvolvedor Web e Mobile, Reali Imobiliária</span>
+          <span class="job-period">Dez 2021 – Mai 2023</span>
+        </div>
+        <p class="job-meta">Tempo integral &bull; Fortaleza, CE</p>
+        <ul>
+          <li>
+            Desenvolvimento de sistemas internos para otimização de processos e experiência do
+            cliente.
+          </li>
+          <li>
+            Aplicação de Gerenciamento de Propriedades: centralização de imóveis, clientes e
+            transações.
+          </li>
+          <li>Desenvolvimento e manutenção de aplicativos mobile com React Native.</li>
+        </ul>
+        <p class="tech-line">
+          <strong>Tecnologias:</strong> TypeScript, React, Next.js, React Native
+        </p>
+      </article>
+
+      <article class="job">
+        <div class="job-header">
+          <span class="job-title">Estágio em Desenvolvimento / QA Tester, Rodobank</span>
+          <span class="job-period">Fev 2021 – Abr 2021</span>
+        </div>
+        <p class="job-meta">Estágio &bull; Fortaleza, CE</p>
+        <ul>
+          <li>Desenvolvimento de funcionalidades internas e testes de qualidade da plataforma.</li>
+        </ul>
+        <p class="tech-line"><strong>Tecnologias:</strong> PHP, Postman</p>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Projetos selecionados</h2>
+
+      <article class="project">
+        <p>
+          <span class="project-name">Overmind — AI Agent Workspace</span>
+          <em>(projeto pessoal, solo)</em> —
+          Control plane de agentes com runtime Hermes (stdio/SSE), approvals human-in-the-loop
+          e cockpit 3D em React Three Fiber.
+        </p>
+      </article>
+      <article class="project">
+        <p>
+          <span class="project-name">Mútua-360 — Modernização CIAP</span> —
+          Plataforma de mutualismo CREA com 7 backends NestJS, legado SQL Server e 37
+          consumers Kafka.
+        </p>
+      </article>
+      <article class="project">
+        <p>
+          <span class="project-name">Vidi — Pix Gateway</span> —
+          Microserviços Pix multi-provider com webhooks, filas assíncronas e dashboards admin.
+        </p>
+      </article>
+      <article class="project">
+        <p>
+          <span class="project-name">Office — Plataforma B2B2C</span>
+          <em>(projeto pessoal, solo · freelance)</em> —
+          Assinaturas, billing, RBAC, 28 rotas de dashboard e e2e Playwright nos fluxos críticos.
+        </p>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Formação acadêmica</h2>
+      <div class="job-header">
+        <span class="job-title">Análise e Desenvolvimento de Sistemas</span>
+        <span class="job-period">2019 – 2021</span>
+      </div>
+      <p>Universidade Estácio de Sá</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Tecnologias</h2>
+      <div class="skills-grid">
+        <p><strong>Frontend:</strong> React, Next.js, Tailwind CSS</p>
+        <p><strong>Backend:</strong> NestJS, Node.js, REST, Swagger</p>
+        <p><strong>Mobile:</strong> React Native, Flutter</p>
+        <p><strong>Dados:</strong> PostgreSQL, Prisma, SQL Server, Oracle</p>
+        <p><strong>Async / integração:</strong> Kafka, BullMQ, webhooks</p>
+        <p><strong>IA:</strong> Agentes, MCP, LLMs, pipelines documentais</p>
+        <p><strong>Qualidade:</strong> Playwright, Postman</p>
+        <p><strong>Ferramentas:</strong> Git, GitHub, GitFlow, Jira</p>
+      </div>
+    </section>
+  </body>
+</html>

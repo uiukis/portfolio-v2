@@ -1,10 +1,12 @@
 export const siteConfig = {
   name: "Wilker Quirino",
-  url: "https://wilkerquirino.dev",
-  email: "hello@wilkerquirino.dev",
+  url: "https://uiukis.vercel.app",
+  email: "wilker.quirino99@gmail.com",
+  phone: "+55 85 99428-6518",
   linkedin: "https://linkedin.com/in/wilkerquirino",
-  github: "https://github.com/wilkerquirino",
-  isInDevelopment: true,
+  github: "https://github.com/uiukis",
+  cvPath: "/Wilker-Quirino-CV.pdf",
+  isInDevelopment: false,
 } as const;
 
 export const navHrefs = [
@@ -15,13 +17,25 @@ export const navHrefs = [
   { key: "contact" as const, href: "#contact" },
 ] as const;
 
-export const capabilityIcons = ["brain", "layers", "network", "compass"] as const;
+export const capabilityIcons = ["brain", "layers", "network", "plug"] as const;
 
-export const projectStacks: Record<string, readonly string[]> = {
+export const projectIds = ["overmind", "mutua", "vidi", "office"] as const;
+
+export type ProjectId = (typeof projectIds)[number];
+
+export const projectGroups = [
+  { key: "personal" as const, projectIds: ["overmind", "office"] as const },
+  { key: "client" as const, projectIds: ["mutua", "vidi"] as const },
+] as const;
+
+export const projectStacks: Record<ProjectId, readonly string[]> = {
   overmind: ["NestJS 11", "Next.js", "R3F", "Hermes", "Prisma"],
   mutua: ["NestJS", "Kafka", "Prisma", "Docuscan AI", "Next.js"],
   vidi: ["NestJS 11", "BullMQ", "Prisma", "PostgreSQL", "PM2"],
   office: ["NestJS 11", "Next.js 16", "Prisma", "Evolution API"],
 };
 
-export const projectIds = ["overmind", "mutua", "vidi", "office"] as const;
+export const projectLinks: Partial<Record<ProjectId, string>> = {
+  overmind: "https://github.com/uiukis",
+  office: "https://github.com/uiukis",
+};

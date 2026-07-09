@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
-import { navHrefs } from "@/lib/site-config";
+import { Menu, X, FileDown } from "lucide-react";
+import { navHrefs, siteConfig } from "@/lib/site-config";
 import { useI18n } from "@/providers/i18n-provider";
 import { HeaderBrand } from "@/components/layout/header-brand";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
@@ -83,6 +83,14 @@ export function Header() {
             <AnimatedText text={t.hero.bootStatus} />
           </motion.span>
           <span className="hidden text-muted-foreground md:inline">{time}</span>
+          <Link
+            href={siteConfig.cvPath}
+            download
+            className="focus-ring hidden items-center gap-1.5 text-muted-foreground transition-colors hover:text-accent md:inline-flex"
+          >
+            <FileDown size={12} aria-hidden="true" />
+            <AnimatedText text={t.hero.ctaCv} />
+          </Link>
           <LanguageSwitcher />
           <button
             type="button"
@@ -104,8 +112,17 @@ export function Header() {
         className="overflow-hidden border-t border-border/60 bg-background/98 backdrop-blur-xl pb-[env(safe-area-inset-bottom)] lg:hidden"
       >
         <nav className="flex flex-col px-4 py-3" aria-label={t.a11y.mainNav}>
-          <div className="border-b border-border/60 pb-3 mb-1">
+          <div className="border-b border-border/60 pb-3 mb-1 space-y-3">
             <LanguageSwitcher />
+            <Link
+              href={siteConfig.cvPath}
+              download
+              className="focus-ring inline-flex items-center gap-2 text-muted-foreground hover:text-accent"
+              onClick={() => setMobileOpen(false)}
+            >
+              <FileDown size={14} aria-hidden="true" />
+              {t.hero.ctaCv}
+            </Link>
           </div>
           {navHrefs.map((item, i) => (
             <motion.div

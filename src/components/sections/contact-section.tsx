@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Mail, Share2, Code2, ArrowRight } from "lucide-react";
+import { Mail, Share2, Code2, ArrowRight, FileDown } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { useI18n } from "@/providers/i18n-provider";
 import { Section } from "@/components/layout/section";
@@ -20,18 +20,29 @@ export function ContactSection() {
       href: `mailto:${siteConfig.email}`,
       icon: Mail,
       description: t.contact.emailDesc,
+      external: false,
+    },
+    {
+      label: t.contact.cvLabel,
+      href: siteConfig.cvPath,
+      icon: FileDown,
+      description: t.contact.cvDesc,
+      external: false,
+      download: true,
     },
     {
       label: "LinkedIn",
       href: siteConfig.linkedin,
       icon: Share2,
       description: t.contact.linkedinDesc,
+      external: true,
     },
     {
       label: "GitHub",
       href: siteConfig.github,
       icon: Code2,
       description: t.contact.githubDesc,
+      external: true,
     },
   ] as const;
 
@@ -49,11 +60,12 @@ export function ContactSection() {
         whileInView="visible"
         viewport={defaultViewport}
         variants={staggerContainer}
-        className="grid gap-4 md:grid-cols-3"
+        className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
       >
         {contactLinks.map((link, i) => {
           const Icon = link.icon;
-          const isExternal = link.href.startsWith("http");
+          const isExternal = link.external;
+          const isDownload = "download" in link && link.download;
 
           return (
             <motion.div key={link.label} variants={fadeUp} custom={i}>
@@ -64,6 +76,7 @@ export function ContactSection() {
                   {...(isExternal
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}
+                  {...(isDownload ? { download: true } : {})}
                 >
                   <motion.div whileHover={{ rotate: 12, scale: 1.1 }}>
                     <Icon

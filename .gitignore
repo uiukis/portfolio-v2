@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# generated CV output (source: docs/cv/*.yaml)
+docs/cv/rendercv_output/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -42,10 +42,12 @@ export type Dictionary = {
     bootLines: string[];
     intro: string;
     name: string;
+    availability: string;
     headline: string;
     subheadline: string;
     ctaSystems: string;
     ctaContact: string;
+    ctaCv: string;
     tags: string[];
   };
   positioning: {
@@ -74,11 +76,18 @@ export type Dictionary = {
     label: string;
     title: string;
     description: string;
-    items: Array<{
+    viewDetails: string;
+    openProject: string;
+    groups: Array<{
+      key: "personal" | "client";
       title: string;
-      category: string;
-      impact: string;
-      description: string;
+      items: Array<{
+        title: string;
+        category: string;
+        ownership?: string;
+        impact: string;
+        description: string;
+      }>;
     }>;
   };
   approach: {
@@ -103,6 +112,8 @@ export type Dictionary = {
     emailDesc: string;
     linkedinDesc: string;
     githubDesc: string;
+    cvLabel: string;
+    cvDesc: string;
   };
   footer: {
     role: string;

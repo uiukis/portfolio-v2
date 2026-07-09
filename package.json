@@ -1,8 +1,8 @@
 {
   "name": "portfolio-v2",
   "version": "0.1.0",
-  "description": "Personal portfolio — Technical Lead in AI Engineering & Full Stack Systems. Next.js 16, R3F, i18n.",
-  "author": "Wilker Quirino <hello@wilkerquirino.dev>",
+  "description": "Personal portfolio — Full Stack & AI Engineering. Next.js 16, R3F, i18n.",
+  "author": "Wilker Quirino <wilker.quirino99@gmail.com>",
   "homepage": "https://uiukis.vercel.app",
   "repository": {
     "type": "git",

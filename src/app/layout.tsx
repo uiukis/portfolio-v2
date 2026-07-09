@@ -35,14 +35,15 @@ export const metadata: Metadata = {
   },
   description: pt.meta.description,
   keywords: [
-    "AI Engineer",
-    "Technical Lead",
     "Full Stack Engineer",
+    "AI Engineer",
     "AI Agents",
+    "MCP",
     "Control Planes",
+    "NestJS",
+    "Next.js",
     "LLM Systems",
-    "System Architecture",
-    "Technical Leadership",
+    "Event-Driven Architecture",
   ],
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
@@ -54,11 +55,20 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} — ${pt.meta.title}`,
     description: pt.meta.description,
     siteName: siteConfig.name,
+    images: [
+      {
+        url: "/wilker-portrait.png",
+        width: 1200,
+        height: 1200,
+        alt: `${siteConfig.name} — Full Stack & AI Engineer`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} — ${pt.meta.title}`,
     description: pt.meta.description,
+    images: ["/wilker-portrait.png"],
   },
   robots: siteConfig.isInDevelopment
     ? { index: false, follow: false }

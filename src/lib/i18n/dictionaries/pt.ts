@@ -2,16 +2,16 @@ import type { Dictionary } from "../types";
 
 export const pt: Dictionary = {
   meta: {
-    title: "Technical Lead · AI Engineering & Full Stack Systems",
+    title: "Full Stack & AI Engineering",
     description:
-      "Technical Lead e engenheiro full stack especializado em control planes de agentes de IA, arquitetura event-driven e modernização de sistemas enterprise em escala.",
+      "Full Stack & AI Engineer especializado em control planes de agentes de IA, NestJS, Next.js, arquitetura event-driven e sistemas enterprise e fintech em produção.",
   },
   a11y: {
     skipLink: "Pular para o conteúdo",
     mainNav: "Navegação principal",
     openMenu: "Abrir menu",
     closeMenu: "Fechar menu",
-    portraitAlt: "Wilker Quirino — retrato profissional, Technical Lead",
+    portraitAlt: "Wilker Quirino — Full Stack & AI Engineer",
   },
   nav: {
     capabilities: "Capacidades",
@@ -38,7 +38,7 @@ export const pt: Dictionary = {
       "Mútua-360 — 37 consumers Kafka e 7 backends NestJS em produção.",
       "33+ repositórios entre projetos pessoais e S4S.",
       "Runtime Hermes via stdio — executor separado do control plane.",
-      "Bat-Family: agentes especializados orquestrados da Belfry.",
+      "Cometa — DRE gerencial e APIs para 38 lojas antes do foco enterprise.",
       "Vidi — gateway Pix multi-provider com BullMQ e webhooks.",
     ],
   },
@@ -54,12 +54,14 @@ export const pt: Dictionary = {
     ],
     intro: "Olá, sou",
     name: "Wilker Quirino",
+    availability: "Disponível para oportunidades",
     headline: "Full Stack Engineer & AI Engineer",
     subheadline:
-      "Projeto control planes de IA e sistemas full stack em produção — da orquestração de agentes a plataformas enterprise.",
+      "Projeto e entrego control planes de IA e sistemas full stack em produção — de varejo corporativo a fintech, agentes e plataformas enterprise.",
     ctaSystems: "Ver sistemas selecionados",
     ctaContact: "Iniciar conversa",
-    tags: ["Control Planes", "Agent Runtimes", "Full Stack", "Event-Driven"],
+    ctaCv: "Baixar CV",
+    tags: ["Control Planes", "MCP · LLM", "Full Stack", "Event-Driven"],
   },
   positioning: {
     fullstackTitle: "Full Stack Engineer",
@@ -94,10 +96,10 @@ export const pt: Dictionary = {
         metrics: ["37 Kafka consumers", "BullMQ queues", "Multi-tenant"],
       },
       {
-        title: "Technical Leadership",
+        title: "MCP & Integrações com LLM",
         description:
-          "Padronização de times em ecossistemas multi-repo, migração de legado sem big-bang, documentação de arquitetura e convenções replicáveis entre clientes enterprise.",
-        metrics: ["33+ repos", "S4S boilerplate", "RBAC + Swagger"],
+          "Agentes, MCP servers e LLMs integrados a fluxos reais — automações operacionais, análise documental e orquestração com separação clara entre produto e runtime.",
+        metrics: ["MCP integrations", "Pipelines documentais", "Agent tooling"],
       },
     ],
   },
@@ -105,9 +107,10 @@ export const pt: Dictionary = {
     label: "Impacto",
     title: "Números que importam",
     description:
-      "Métricas de produção de sistemas que projetei, construí e liderei — não side projects.",
+      "Métricas de produção de sistemas que projeto e entrego end-to-end — pessoais e em clientes.",
     metrics: [
       { value: "33+", label: "Repositórios em ecossistemas enterprise e pessoais" },
+      { value: "38", label: "Lojas atendidas pelo DRE corporativo (Cometa)" },
       { value: "340+", label: "Arquivos no cockpit 3D Overmind Web" },
       { value: "37", label: "Kafka consumers no módulo de benefícios" },
       { value: "7", label: "Backends NestJS no ecossistema Mútua-360" },
@@ -117,35 +120,51 @@ export const pt: Dictionary = {
     label: "Sistemas Selecionados",
     title: "Arquitetura em produção",
     description:
-      "Case studies focados em design de sistema, decisões técnicas e impacto de negócio.",
-    items: [
+      "Case studies separados por projetos pessoais (solo) e entregas em clientes — design de sistema, decisões técnicas e impacto.",
+    viewDetails: "Ver detalhes",
+    openProject: "Abrir projeto",
+    groups: [
       {
-        title: "Overmind — AI Agent Workspace",
-        category: "AI Engineering",
-        impact: "Control plane + cockpit 3D para agentes locais com audit trail completo",
-        description:
-          "Ecossistema pessoal: API como control plane (runs, chat SSE, tasks, offices) e Web como cockpit visual com escritório 3D retro, kanban, approvals e mission control multipane.",
+        key: "personal",
+        title: "Projetos pessoais",
+        items: [
+          {
+            title: "Overmind — AI Agent Workspace",
+            category: "AI Engineering",
+            ownership: "Projeto solo · concepção, arquitetura e build end-to-end",
+            impact: "Control plane + cockpit 3D para agentes locais com audit trail completo",
+            description:
+              "Ecossistema pessoal: API como control plane (runs, chat SSE, tasks, offices) e Web como cockpit visual com escritório 3D retro, kanban, approvals e mission control multipane.",
+          },
+          {
+            title: "Office — Plataforma B2B2C de Assinaturas",
+            category: "Full Stack",
+            ownership: "Projeto solo · freelance · produto próprio",
+            impact: "28 rotas de dashboard, hierarquia multi-nível de parceiros e sync com painel externo",
+            description:
+              "Plataforma B2B2C completa: assinaturas, billing, catálogo, infraestrutura de entrega, tickets, analytics, gamificação e integração WhatsApp — com e2e Playwright e RBAC.",
+          },
+        ],
       },
       {
-        title: "Mútua-360 — Modernização CIAP",
-        category: "Enterprise · S4S",
-        impact: "19 repos integrando legado SQL Server com frontends Next.js modulares",
-        description:
-          "Plataforma de mutualismo CREA: benefícios, contratos, diárias, patrocínios e app mobile — com pipeline de análise documental via IA e 37 consumers Kafka assíncronos.",
-      },
-      {
-        title: "Vidi — Pix Gateway Multi-Provider",
-        category: "Fintech · S4S",
-        impact: "Gateway unificado para Firebanking, SAQ e Simpay com filas assíncronas",
-        description:
-          "Microserviços Pix com api-core stateless, webhooks cash-in/out, auth multi-tenant e dashboards admin — arquitetura orientada a confiabilidade financeira.",
-      },
-      {
-        title: "Office — Plataforma B2B2C de Assinaturas",
-        category: "Full Stack · Personal",
-        impact: "28 rotas de dashboard, hierarquia multi-nível de parceiros e sync com painel externo",
-        description:
-          "Plataforma B2B2C completa: assinaturas, billing, catálogo, infraestrutura de entrega, tickets, analytics, gamificação e integração WhatsApp — com e2e Playwright e RBAC.",
+        key: "client",
+        title: "Projetos em clientes",
+        items: [
+          {
+            title: "Mútua-360 — Modernização CIAP",
+            category: "Enterprise · s4S",
+            impact: "19 repos integrando legado SQL Server com frontends Next.js modulares",
+            description:
+              "Plataforma de mutualismo CREA: benefícios, contratos, diárias, patrocínios e app mobile — com pipeline de análise documental via IA e 37 consumers Kafka assíncronos.",
+          },
+          {
+            title: "Vidi — Pix Gateway Multi-Provider",
+            category: "Fintech · Vidi Tech",
+            impact: "Gateway unificado para Firebanking, SAQ e Simpay com filas assíncronas",
+            description:
+              "Microserviços Pix com api-core stateless, webhooks cash-in/out, auth multi-tenant e dashboards admin — arquitetura orientada a confiabilidade financeira.",
+          },
+        ],
       },
     ],
   },
@@ -201,13 +220,15 @@ export const pt: Dictionary = {
     label: "Contato",
     title: "Vamos construir algo inteligente",
     description:
-      "Aberto a posições de Technical Lead, Staff Engineer e liderança em AI Engineering.",
+      "Aberto a oportunidades em Full Stack & AI Engineering — produtos em produção, agentes, MCP e sistemas enterprise.",
     emailDesc: "Linha direta para oportunidades",
     linkedinDesc: "Rede profissional",
     githubDesc: "Open source & código",
+    cvLabel: "Currículo",
+    cvDesc: "PDF atualizado (RenderCV)",
   },
   footer: {
-    role: "Technical Lead · AI Engineering & Full Stack",
+    role: "Full Stack & AI Engineer",
     builtWith: "Feito com Next.js, React Three Fiber & Framer Motion.",
     belfry: "Engineered from the Belfry.",
   },

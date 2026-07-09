@@ -3,7 +3,8 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, FileDown } from "lucide-react";
+import { siteConfig } from "@/lib/site-config";
 import { useI18n } from "@/providers/i18n-provider";
 import { BootIntro } from "@/components/brand/boot-intro";
 import { HeroCuriosities } from "@/components/brand/hero-curiosities";
@@ -61,6 +62,14 @@ export function HeroSection() {
                   <Button asChild variant="outline" size="lg">
                     <Link href="#contact">
                       <AnimatedText text={t.hero.ctaContact} />
+                    </Link>
+                  </Button>
+                </Magnetic>
+                <Magnetic strength={0.15}>
+                  <Button asChild variant="outline" size="lg">
+                    <Link href={siteConfig.cvPath} download>
+                      <FileDown size={16} aria-hidden="true" />
+                      <AnimatedText text={t.hero.ctaCv} />
                     </Link>
                   </Button>
                 </Magnetic>
