@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { AnimatedText } from "@/components/ui/animated-text";
-import { fadeUp, revealLine, staggerFast, defaultViewport } from "@/lib/motion";
+import { fadeUp, staggerFast, defaultViewport } from "@/lib/motion";
 
 interface SectionProps {
   id?: string;
@@ -31,13 +31,13 @@ export function Section({
   return (
     <section
       id={id}
-      className={cn("relative py-28 md:py-36", className)}
+      className={cn("relative py-24 md:py-32", className)}
       aria-labelledby={labelledBy}
     >
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         {(label || title || description) && (
           <motion.header
-            className="mb-16 max-w-2xl"
+            className="mb-14 max-w-2xl"
             initial="hidden"
             whileInView="visible"
             viewport={defaultViewport}
@@ -46,7 +46,7 @@ export function Section({
             {index && (
               <motion.span
                 variants={fadeUp}
-                className="mb-4 block font-mono text-[10px] tracking-[0.4em] text-muted-foreground"
+                className="mb-3 block text-[12px] font-medium tracking-wide text-muted-foreground"
               >
                 {index}
               </motion.span>
@@ -56,7 +56,7 @@ export function Section({
                 <AnimatedText
                   as="p"
                   text={label}
-                  className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-accent"
+                  className="mb-3 text-sm font-medium text-muted"
                 />
               </motion.div>
             )}
@@ -66,21 +66,20 @@ export function Section({
                   as="h2"
                   id={`${id}-heading`}
                   text={title}
-                  effect="typewriter"
                   className="text-3xl font-semibold tracking-tight text-foreground md:text-5xl"
                 />
               </motion.div>
             )}
             <motion.div
-              variants={revealLine}
-              className="section-line mt-6 max-w-xs origin-left"
+              variants={fadeUp}
+              className="section-line mt-5 max-w-[10rem]"
             />
             {description && (
-              <motion.div variants={fadeUp} className="mt-6">
+              <motion.div variants={fadeUp} className="mt-5">
                 <AnimatedText
                   as="p"
                   text={description}
-                  className="text-lg leading-relaxed text-muted"
+                  className="text-base leading-relaxed text-muted md:text-lg"
                 />
               </motion.div>
             )}

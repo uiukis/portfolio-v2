@@ -22,8 +22,8 @@ export function PositioningSection() {
       icon: Brain,
       title: t.positioning.aiTitle,
       desc: t.positioning.aiDesc,
-      accent: "text-accent-secondary",
-      bg: "bg-accent-secondary/10 group-hover:bg-accent-secondary/20",
+      accent: "text-accent",
+      bg: "bg-white/[0.06] group-hover:bg-white/[0.1]",
     },
   ] as const;
 
@@ -45,7 +45,7 @@ export function PositioningSection() {
                   <motion.div
                     whileHover={{ rotate: [0, -8, 8, 0] }}
                     transition={{ duration: 0.5 }}
-                    className={`mb-6 flex h-12 w-12 items-center justify-center rounded-xl ${card.bg} ${card.accent} transition-colors`}
+                    className={`mb-6 flex h-12 w-12 items-center justify-center rounded-full ${card.bg} ${card.accent} transition-colors`}
                   >
                     <Icon size={24} aria-hidden="true" />
                   </motion.div>

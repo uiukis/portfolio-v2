@@ -43,7 +43,7 @@ export function CapabilitiesSection() {
                   <div className="mb-5 flex items-center gap-4">
                     <motion.div
                       whileHover={{ scale: 1.1 }}
-                      className="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-elevated text-accent transition-colors group-hover:text-accent"
+                      className="flex h-10 w-10 items-center justify-center rounded-full bg-white/[0.06] text-accent transition-colors group-hover:bg-white/[0.1]"
                     >
                       <Icon size={20} aria-hidden="true" />
                     </motion.div>

@@ -10,7 +10,10 @@ export function LanguageSwitcher({ className }: { className?: string }) {
 
   return (
     <div
-      className={cn("flex gap-1 rounded-md border border-border/60 p-0.5", className)}
+      className={cn(
+        "flex items-center rounded-full border border-white/12 bg-white/[0.04] p-0.5 backdrop-blur-md",
+        className,
+      )}
       role="group"
       aria-label={t.language.label}
     >
@@ -22,15 +25,17 @@ export function LanguageSwitcher({ className }: { className?: string }) {
             type="button"
             onClick={() => locale !== loc && setLocale(loc as Locale)}
             className={cn(
-              "focus-ring relative min-h-6 min-w-6 px-2 py-1 font-mono text-[10px] uppercase tracking-widest transition-colors",
-              active ? "text-accent" : "text-muted-foreground hover:text-foreground",
+              "focus-ring relative rounded-full px-2.5 py-1 text-[12px] font-medium uppercase tracking-wide transition-colors",
+              active
+                ? "text-foreground"
+                : "text-muted-foreground hover:text-foreground/80",
             )}
             aria-pressed={active}
           >
             {active && (
               <motion.span
                 layoutId="lang-pill"
-                className="absolute inset-0 rounded bg-accent/10"
+                className="absolute inset-0 rounded-full bg-white/14"
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
               />
             )}

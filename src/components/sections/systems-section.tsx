@@ -51,7 +51,7 @@ export function SystemsSection() {
       <div className="flex flex-col gap-12">
         {t.systems.groups.map((group) => (
           <div key={group.key}>
-            <h3 className="mb-6 font-mono text-xs uppercase tracking-[0.3em] text-accent">
+            <h3 className="mb-6 text-sm font-medium text-muted">
               {group.title}
             </h3>
             <motion.div
@@ -89,7 +89,7 @@ export function SystemsSection() {
                           <div className="flex-1">
                             <div className="mb-4 flex flex-wrap items-center gap-3">
                               <Badge variant="accent">{project.category}</Badge>
-                              <span className="font-mono text-xs text-muted-foreground">
+                              <span className="text-xs text-muted-foreground">
                                 {String(i + 1).padStart(2, "0")}
                               </span>
                             </div>
@@ -107,7 +107,7 @@ export function SystemsSection() {
                             <p className="mt-4 text-sm font-medium text-accent">
                               {project.impact}
                             </p>
-                            <p className="mt-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                            <p className="mt-3 text-xs font-medium text-muted-foreground">
                               {t.systems.viewDetails}
                             </p>
                           </div>
@@ -120,7 +120,7 @@ export function SystemsSection() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: j * 0.04 }}
-                                className="rounded-md border border-border bg-surface-elevated px-3 py-1.5 font-mono text-xs text-muted-foreground transition-colors hover:border-accent/30 hover:text-accent"
+                                className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-muted transition-colors hover:border-white/20 hover:text-foreground"
                               >
                                 {tech}
                               </motion.span>

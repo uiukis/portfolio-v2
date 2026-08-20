@@ -23,7 +23,7 @@ export function Footer() {
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 md:flex-row md:items-center md:justify-between">
         <div>
-          <p className="font-mono text-sm text-foreground">
+          <p className="text-sm font-medium tracking-tight text-foreground">
             {siteConfig.name}
             <motion.span
               animate={{ opacity: [1, 0.4, 1] }}
@@ -38,7 +38,7 @@ export function Footer() {
             text={t.footer.role}
             className="mt-1 text-sm text-muted-foreground"
           />
-          <p className="mt-2 font-mono text-xs text-muted-foreground">{t.footer.belfry}</p>
+          <p className="mt-2 text-xs text-muted-foreground">{t.footer.belfry}</p>
         </div>
 
         <nav aria-label="Social links">

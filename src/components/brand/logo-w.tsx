@@ -46,7 +46,7 @@ export function LogoW({ size = 40, animated = false, className }: LogoWProps) {
       viewBox="0 0 48 48"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
-      className={cn("shrink-0 text-accent drop-shadow-[0_0_12px_rgba(0,212,170,0.35)]", className)}
+      className={cn("shrink-0 text-foreground drop-shadow-[0_0_12px_rgba(126,182,255,0.25)]", className)}
     >
       {animated ? path : (
         <path

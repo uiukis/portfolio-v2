@@ -86,7 +86,7 @@ export function PageLoader() {
         >
           <div className="grid-bg absolute inset-0 opacity-60" aria-hidden="true" />
           <div
-            className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(0,212,170,0.08)_0%,transparent_70%)]"
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(126,182,255,0.12)_0%,transparent_70%)]"
             aria-hidden="true"
           />
 
@@ -103,7 +103,7 @@ export function PageLoader() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.45 }}
-              className="mt-8 font-mono text-[11px] uppercase tracking-[0.4em] text-accent"
+              className="mt-8 text-[13px] font-medium tracking-wide text-muted"
             >
               {t.loader.title}
             </motion.p>
@@ -112,13 +112,13 @@ export function PageLoader() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.35 }}
-              className="mt-2 font-mono text-[10px] tracking-widest text-muted-foreground"
+              className="mt-2 text-[12px] tracking-wide text-muted-foreground"
             >
               {t.loader.subtitle}
               <span className="cursor-blink" />
             </motion.p>
 
-            <div className="mt-10 w-full max-w-md space-y-2 border-l-2 border-accent/50 pl-5 text-left font-mono text-[11px] leading-relaxed">
+            <div className="hero-terminal mt-10 w-full max-w-md space-y-2 rounded-2xl px-5 py-4 text-left font-mono text-[11px] leading-relaxed">
               {t.hero.bootLines.map((line, i) => (
                 <AnimatePresence key={line}>
                   {visibleLines > i && (

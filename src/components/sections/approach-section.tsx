@@ -30,10 +30,10 @@ export function ApproachSection() {
           <motion.div key={i} variants={fadeUp} custom={i}>
             <GlowCard className="h-full">
               <article className="p-6">
-                <span className="font-mono text-[10px] tracking-[0.3em] text-accent/60">
+                <span className="text-[12px] font-medium text-muted-foreground">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="text-base font-semibold text-foreground">{principle.title}</h3>
+                <h3 className="mt-2 text-base font-semibold text-foreground">{principle.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{principle.description}</p>
               </article>
             </GlowCard>
@@ -46,18 +46,18 @@ export function ApproachSection() {
         whileInView="visible"
         viewport={defaultViewport}
         variants={fadeUp}
-        className="mx-auto mt-16 max-w-3xl border-l-2 border-accent/40 pl-6 md:pl-8"
+        className="mx-auto mt-16 max-w-3xl border-l-2 border-white/15 pl-6 md:pl-8"
       >
         <p className="text-lg leading-relaxed text-foreground md:text-xl">
           &ldquo;
-          <AnimatedText text={t.approach.engineeringQuote} effect="typewriter" />{" "}
+          <AnimatedText text={t.approach.engineeringQuote} />{" "}
           <span className="text-muted">
-            <AnimatedText text={t.approach.engineeringHighlight} effect="typewriter" />
+            <AnimatedText text={t.approach.engineeringHighlight} />
           </span>
           &rdquo;
         </p>
-        <footer className="mt-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-          <AnimatedText text={t.approach.engineeringFooter} effect="typewriter" />
+        <footer className="mt-4 text-xs font-medium text-muted-foreground">
+          <AnimatedText text={t.approach.engineeringFooter} />
         </footer>
       </motion.blockquote>
     </Section>

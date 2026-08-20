@@ -20,6 +20,12 @@ export type Dictionary = {
     contact: string;
     cta: string;
   };
+  header: {
+    brand: string;
+    productBadge: string;
+    statusBadge: string;
+    github: string;
+  };
   language: {
     label: string;
     switchTo: string;
@@ -43,11 +49,19 @@ export type Dictionary = {
     intro: string;
     name: string;
     availability: string;
+    eyebrow: string;
     headline: string;
     subheadline: string;
+    subheadlineSecondary: string;
     ctaSystems: string;
     ctaContact: string;
     ctaCv: string;
+    ctaGithub: string;
+    terminalQuick: string;
+    terminalFeed: string;
+    terminalCopy: string;
+    terminalCopied: string;
+    terminalCommand: string;
     tags: string[];
   };
   positioning: {

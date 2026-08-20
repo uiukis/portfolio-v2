@@ -21,6 +21,12 @@ export const en: Dictionary = {
     contact: "Contact",
     cta: "Let's talk",
   },
+  header: {
+    brand: "wilker",
+    productBadge: "Portfolio",
+    statusBadge: "Open to work",
+    github: "GitHub",
+  },
   language: {
     label: "Language",
     switchTo: "Switch language to",
@@ -55,12 +61,21 @@ export const en: Dictionary = {
     intro: "Hi, I'm",
     name: "Wilker Quirino",
     availability: "Open to opportunities",
+    eyebrow: "Wilker Quirino · Full Stack & AI",
     headline: "Full Stack Engineer & AI Engineer",
     subheadline:
       "I design and ship AI control planes and production full stack systems — from corporate retail to fintech, agents and enterprise platforms.",
-    ctaSystems: "View selected systems",
-    ctaContact: "Start a conversation",
+    subheadlineSecondary:
+      "Control planes · NestJS · Next.js · MCP · LLM · event-driven · production enterprise systems.",
+    ctaSystems: "View systems",
+    ctaContact: "Talk to me",
     ctaCv: "Download CV",
+    ctaGithub: "View on GitHub",
+    terminalQuick: "Quick start",
+    terminalFeed: "Feed",
+    terminalCopy: "Copy",
+    terminalCopied: "Copied",
+    terminalCommand: "open portfolio — wilker quirino",
     tags: ["Control Planes", "MCP · LLM", "Full Stack", "Event-Driven"],
   },
   positioning: {
