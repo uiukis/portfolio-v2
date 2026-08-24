@@ -68,7 +68,7 @@ export function Header() {
             scrolled ? "h-12 md:h-14" : "h-14 md:h-16",
           )}
         >
-          <HeaderBrand scrolled={scrolled} />
+          <HeaderBrand />
 
           <nav
             className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-5 lg:flex"

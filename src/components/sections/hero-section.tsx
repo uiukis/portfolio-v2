@@ -7,6 +7,7 @@ import { siteConfig } from "@/lib/site-config";
 import { useI18n } from "@/providers/i18n-provider";
 import { HeroTerminal } from "@/components/brand/hero-terminal";
 import { Button } from "@/components/ui/button";
+import { TextReveal } from "@/components/ui/text-reveal";
 import { fadeUp, staggerFast } from "@/lib/motion";
 
 function GitHubIcon({ size = 16 }: { size?: number }) {
@@ -72,13 +73,14 @@ export function HeroSection() {
               {t.hero.availability}
             </motion.p>
 
-            <motion.h1
-              variants={fadeUp}
+            <TextReveal
+              as="h1"
               id="hero-heading"
+              text={t.hero.name}
+              mode="settle"
+              delay={0.15}
               className="mt-4 text-4xl font-semibold tracking-tight text-foreground md:text-5xl lg:text-[3.75rem] lg:leading-[1.05]"
-            >
-              {t.hero.name}
-            </motion.h1>
+            />
 
             <motion.p
               variants={fadeUp}

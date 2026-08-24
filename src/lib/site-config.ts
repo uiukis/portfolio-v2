@@ -19,13 +19,13 @@ export const navHrefs = [
 
 export const capabilityIcons = ["brain", "layers", "network", "plug"] as const;
 
-export const projectIds = ["overmind", "mutua", "vidi", "office"] as const;
+export const projectIds = ["overmind", "mutua", "vidi", "office", "cerus"] as const;
 
 export type ProjectId = (typeof projectIds)[number];
 
 export const projectGroups = [
   { key: "personal" as const, projectIds: ["overmind", "office"] as const },
-  { key: "client" as const, projectIds: ["mutua", "vidi"] as const },
+  { key: "client" as const, projectIds: ["cerus", "mutua", "vidi"] as const },
 ] as const;
 
 export const projectStacks: Record<ProjectId, readonly string[]> = {
@@ -33,6 +33,7 @@ export const projectStacks: Record<ProjectId, readonly string[]> = {
   mutua: ["NestJS", "Kafka", "Prisma", "Docuscan AI", "Next.js"],
   vidi: ["NestJS 11", "BullMQ", "Prisma", "PostgreSQL", "PM2"],
   office: ["NestJS 11", "Next.js 16", "Prisma", "Evolution API"],
+  cerus: ["NestJS 10", "Angular 19", "RabbitMQ", "PostgreSQL", "S3", "PM2"],
 };
 
 export const projectLinks: Partial<Record<ProjectId, string>> = {

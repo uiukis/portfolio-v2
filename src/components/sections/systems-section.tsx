@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import {
+  projectGroups,
   projectLinks,
   projectStacks,
   type ProjectId,
@@ -21,11 +22,6 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { fadeUp, staggerContainer, defaultViewport } from "@/lib/motion";
-
-const projectIdsByGroup: Record<"personal" | "client", readonly ProjectId[]> = {
-  personal: ["overmind", "office"],
-  client: ["mutua", "vidi"],
-};
 
 type SelectedProject = {
   id: ProjectId;
@@ -62,7 +58,8 @@ export function SystemsSection() {
               className="flex flex-col gap-6"
             >
               {group.items.map((project, i) => {
-                const id = projectIdsByGroup[group.key][i];
+                const config = projectGroups.find((g) => g.key === group.key);
+                const id = config!.projectIds[i];
                 const stack = projectStacks[id];
                 const href = projectLinks[id];
 

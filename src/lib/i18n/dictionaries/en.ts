@@ -31,21 +31,21 @@ export const en: Dictionary = {
     label: "Language",
     switchTo: "Switch language to",
   },
-  loader: {
-    title: "WQ-OS // PORTFOLIO",
-    subtitle: "Initializing systems",
-    ready: "Wilker Quirino — online",
+    loader: {
+    title: "wilker",
+    subtitle: "Portfolio",
+    ready: "Software & AI Engineer",
   },
   curiosities: {
     title: "belfry — feed",
     prefix: "[LOG]",
     items: [
+      "Cerus Bank — condo fintech: Receita Garantida, credit and 1,200+ clients.",
+      "Cerus — async financial reports (Excel/PDF) with RabbitMQ + S3.",
+      "s4S — software house (Fortaleza): AI, APIs, web/mobile and integrations.",
+      "Mútua via s4S — CIAP modernization (Confea/Crea assistance fund).",
+      "Vidi Tech via s4S — multi-provider Pix gateway (BaaS/CaaS).",
       "Overmind — AI control plane + 3D cockpit with 340+ files in the web app.",
-      "Mútua-360 — 37 Kafka consumers and 7 NestJS backends in production.",
-      "33+ repositories across personal projects and S4S.",
-      "Hermes runtime via stdio — executor decoupled from the control plane.",
-      "Cometa — managerial P&L and APIs for 38 retail stores before the enterprise focus.",
-      "Vidi — multi-provider Pix gateway with BullMQ and webhooks.",
     ],
   },
   hero: {
@@ -60,13 +60,13 @@ export const en: Dictionary = {
     ],
     intro: "Hi, I'm",
     name: "Wilker Quirino",
-    availability: "Open to opportunities",
-    eyebrow: "Wilker Quirino · Full Stack & AI",
-    headline: "Full Stack Engineer & AI Engineer",
+    availability: "Software & AI Engineer",
+    eyebrow: "Wilker Quirino",
+    headline: "Software Engineer & AI Engineer",
     subheadline:
-      "I design and ship AI control planes and production full stack systems — from corporate retail to fintech, agents and enterprise platforms.",
+      "I design and ship production systems — NestJS backends, modern frontends, async queues, LLM and event-driven architecture.",
     subheadlineSecondary:
-      "Control planes · NestJS · Next.js · MCP · LLM · event-driven · production enterprise systems.",
+      "NestJS · Angular · Next.js · RabbitMQ · PostgreSQL · MCP · LLM",
     ctaSystems: "View systems",
     ctaContact: "Talk to me",
     ctaCv: "Download CV",
@@ -124,10 +124,10 @@ export const en: Dictionary = {
     description:
       "Production metrics from systems I design and deliver end-to-end — personal and client work.",
     metrics: [
+      { value: "3", label: "Production services at Cerus Bank (API, front, reports)" },
       { value: "33+", label: "Repos across enterprise and personal ecosystems" },
-      { value: "38", label: "Stores served by corporate P&L system (Cometa)" },
+      { value: "37", label: "Kafka consumers in benefits module (Mútua)" },
       { value: "340+", label: "Files in Overmind Web 3D cockpit" },
-      { value: "37", label: "Kafka consumers in benefits module" },
       { value: "7", label: "NestJS backends in Mútua-360 ecosystem" },
     ],
   },
@@ -166,18 +166,31 @@ export const en: Dictionary = {
         title: "Client projects",
         items: [
           {
-            title: "Mútua-360 — CIAP Modernization",
-            category: "Enterprise · s4S",
-            impact: "19 repos integrating legacy SQL Server with modular Next.js frontends",
+            title: "Cerus Bank — Condominium finance",
+            category: "Fintech · Cerus Bank",
+            ownership: "Cerus Bank · Full Stack & AI Engineer",
+            impact:
+              "Receita Garantida and condo credit platform — 1,200+ condominiums across 18 states",
             description:
-              "CREA mutualism platform: benefits, contracts, travel allowances, sponsorships and mobile app — with AI document analysis pipeline and 37 async Kafka consumers.",
+              "Fintech specialized in condominium finance (guaranteed revenue, credit, delinquency acquisition). NestJS API with remittance/boleto consumers, Angular 19 frontend, async report microservice (Excel/PDF via RabbitMQ + S3) and AI-powered onboarding pipeline.",
           },
           {
-            title: "Vidi — Pix Multi-Provider Gateway",
-            category: "Fintech · Vidi Tech",
-            impact: "Unified gateway for Firebanking, SAQ and Simpay with async queues",
+            title: "Mútua-360 — CIAP modernization",
+            category: "Enterprise · s4S client",
+            ownership: "s4S Tech · contracted to deliver for Mútua",
+            impact:
+              "CIAP modernization — corporate system for CREA professionals' assistance fund",
             description:
-              "Pix microservices with stateless api-core, cash-in/out webhooks, multi-tenant auth and admin dashboards — architecture focused on financial reliability.",
+              "At s4S (Fortaleza software house: consulting, web/mobile, AI and integrations), I worked on Mútua-360 for Mútua — the Confea/Crea professionals' assistance fund. CIAP modernization with NestJS, Kafka (37 consumers), AI document pipeline and Next.js, coexisting with legacy SQL Server.",
+          },
+          {
+            title: "Vidi Tech — Multi-provider Pix gateway",
+            category: "Fintech · s4S client",
+            ownership: "s4S Tech · contracted to deliver for Vidi Tech",
+            impact:
+              "Unified Pix gateway (IN/OUT, dynamic/static QR) with queues and multi-tenant webhooks",
+            description:
+              "Also via s4S, delivery for Vidi Tech — payments fintech (BaaS/CaaS) in Fortaleza. Multi-provider Pix gateway with NestJS, BullMQ, cash-in/out webhooks, multi-tenant auth and admin dashboards — focused on financial reliability and payout automation.",
           },
         ],
       },
@@ -187,7 +200,7 @@ export const en: Dictionary = {
     label: "Approach",
     title: "How I work",
     description:
-      "Patterns from real projects — Overmind, Mútua-360, Vidi, Office — and multi-repo enterprise ecosystems.",
+      "Patterns from real projects — Cerus Bank, s4S (Mútua, Vidi Tech), Overmind, Office — and multi-repo enterprise ecosystems.",
     items: [
       {
         title: "Control plane ≠ Executor",
@@ -235,15 +248,15 @@ export const en: Dictionary = {
     label: "Contact",
     title: "Let's build something intelligent",
     description:
-      "Open to Full Stack & AI Engineering roles — production products, agents, MCP and enterprise systems.",
-    emailDesc: "Direct line for opportunities",
+      "Software & AI Engineer. Open to talk about engineering, architecture and agents.",
+    emailDesc: "Professional email",
     linkedinDesc: "Professional network",
     githubDesc: "Open source & code",
     cvLabel: "Resume",
     cvDesc: "Updated PDF (RenderCV)",
   },
   footer: {
-    role: "Full Stack & AI Engineer",
+    role: "Software & AI Engineer",
     builtWith: "Built with Next.js, React Three Fiber & Framer Motion.",
     belfry: "Engineered from the Belfry.",
   },
