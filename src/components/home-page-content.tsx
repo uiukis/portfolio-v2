@@ -4,15 +4,12 @@ import dynamic from "next/dynamic";
 import { Header } from "@/components/layout/header";
 import { DevBanner } from "@/components/layout/dev-banner";
 import { Footer } from "@/components/layout/footer";
-import { AmbientBackground } from "@/components/effects/ambient-background";
-import { CursorGlow } from "@/components/effects/cursor-glow";
 import { ScrollProgress } from "@/components/effects/scroll-progress";
 import { PageLoader } from "@/components/effects/page-loader";
 import { HeroSection } from "@/components/sections/hero-section";
 
-const PositioningSection = dynamic(
-  () =>
-    import("@/components/sections/positioning-section").then((m) => m.PositioningSection),
+const ExperienceSection = dynamic(
+  () => import("@/components/sections/experience-section").then((m) => m.ExperienceSection),
   { ssr: true },
 );
 const CapabilitiesSection = dynamic(
@@ -28,10 +25,6 @@ const SystemsSection = dynamic(
   () => import("@/components/sections/systems-section").then((m) => m.SystemsSection),
   { ssr: true },
 );
-const ApproachSection = dynamic(
-  () => import("@/components/sections/approach-section").then((m) => m.ApproachSection),
-  { ssr: true },
-);
 const PhilosophySection = dynamic(
   () => import("@/components/sections/philosophy-section").then((m) => m.PhilosophySection),
   { ssr: true },
@@ -45,19 +38,16 @@ export function HomePageContent() {
   return (
     <>
       <PageLoader />
-      <AmbientBackground />
-      <CursorGlow />
       <ScrollProgress />
 
       <DevBanner />
       <Header />
       <main id="main-content">
         <HeroSection />
-        <PositioningSection />
+        <SystemsSection />
+        <ExperienceSection />
         <CapabilitiesSection />
         <ImpactSection />
-        <SystemsSection />
-        <ApproachSection />
         <PhilosophySection />
         <ContactSection />
       </main>

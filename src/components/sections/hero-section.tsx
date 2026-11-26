@@ -1,152 +1,81 @@
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowDown, FileDown, Layers, MessageCircle } from "lucide-react";
-import { siteConfig } from "@/lib/site-config";
+import { FileDown } from "lucide-react";
 import { useI18n } from "@/providers/i18n-provider";
-import { HeroTerminal } from "@/components/brand/hero-terminal";
+import { siteConfig, projectImages, projectLinks } from "@/lib/site-config";
+import { MotionScene } from "@/components/ui/motion-scene";
 import { Button } from "@/components/ui/button";
-import { TextReveal } from "@/components/ui/text-reveal";
-import { fadeUp, staggerFast } from "@/lib/motion";
-
-function GitHubIcon({ size = 16 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.28-.01-1.02-.02-2-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.81 1.1.81 2.22 0 1.61-.01 2.91-.01 3.3 0 .32.22.7.82.58C20.56 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0z" />
-    </svg>
-  );
-}
 
 export function HeroSection() {
   const { t } = useI18n();
-
-  const actions = [
-    {
-      href: siteConfig.github,
-      label: t.hero.ctaGithub,
-      variant: "default" as const,
-      icon: <GitHubIcon />,
-      external: true,
-    },
-    {
-      href: "#systems",
-      label: t.hero.ctaSystems,
-      variant: "outline" as const,
-      icon: <Layers size={16} aria-hidden="true" />,
-    },
-    {
-      href: "#contact",
-      label: t.hero.ctaContact,
-      variant: "outline" as const,
-      icon: <MessageCircle size={16} aria-hidden="true" />,
-    },
-    {
-      href: siteConfig.cvPath,
-      label: t.hero.ctaCv,
-      variant: "outline" as const,
-      icon: <FileDown size={16} aria-hidden="true" />,
-      download: true,
-    },
-  ];
+  const [featured, setFeatured] = useState<"nook" | "easycards">("nook");
+  const projects = t.systems.groups.flatMap((group) => group.items);
+  const project = projects.find((item) => item.id === featured)!;
+  const image = projectImages[featured]!;
 
   return (
-    <section
-      className="relative flex min-h-screen flex-col justify-center overflow-hidden"
-      aria-labelledby="hero-heading"
-    >
-      <div className="grid-bg absolute inset-0 opacity-70" aria-hidden="true" />
-      <div className="dot-field absolute inset-0 opacity-80" aria-hidden="true" />
+    <section className="hero-studio" aria-labelledby="hero-heading">
+      <div className="hero-horizon" aria-hidden="true" />
+      <div className="mx-auto max-w-6xl px-4 md:px-6">
+        <MotionScene variant="hero">
+          <div className="hero-introduction">
+            <div>
+              <p data-motion-copy className="mb-5 text-sm text-muted">{t.hero.availability}</p>
+              <h1 id="hero-heading" className="hero-display" aria-label={t.hero.name}>
+                {t.hero.name.split(" ").map((word) => (
+                  <span className="hero-word-mask" key={word} aria-hidden="true">
+                    <span data-motion-word>{word}</span>
+                  </span>
+                ))}
+              </h1>
+            </div>
+            <div className="hero-about">
+              <p data-motion-copy className="text-sm font-medium text-accent">{t.hero.headline}</p>
+              <p data-motion-copy className="hero-description">{t.hero.subheadline}</p>
+              <div data-motion-copy className="mt-7 flex flex-wrap gap-3">
+                <Button asChild size="lg"><Link href="#systems">{t.hero.ctaSystems}</Link></Button>
+                <Button asChild variant="outline" size="lg"><Link href="#contact">{t.hero.ctaContact}</Link></Button>
+              </div>
+              <Link href="#experience" data-motion-copy className="focus-ring mt-6 inline-flex min-h-11 items-center gap-2 text-sm text-muted hover:text-foreground">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+                {t.hero.currentRole}
+              </Link>
+            </div>
+          </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-20 pt-28 md:px-6 md:pb-28 md:pt-32">
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14 xl:gap-20">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerFast}
-            className="max-w-xl"
-          >
-            <motion.p
-              variants={fadeUp}
-              className="text-[15px] font-medium text-muted md:text-base"
-            >
-              {t.hero.availability}
-            </motion.p>
-
-            <TextReveal
-              as="h1"
-              id="hero-heading"
-              text={t.hero.name}
-              mode="settle"
-              delay={0.15}
-              className="mt-4 text-4xl font-semibold tracking-tight text-foreground md:text-5xl lg:text-[3.75rem] lg:leading-[1.05]"
-            />
-
-            <motion.p
-              variants={fadeUp}
-              className="mt-4 text-xl font-medium text-foreground/90 md:text-2xl"
-            >
-              {t.hero.headline}
-            </motion.p>
-
-            <motion.p
-              variants={fadeUp}
-              className="mt-6 text-[15px] leading-relaxed text-muted md:text-base"
-            >
-              {t.hero.subheadline}
-            </motion.p>
-
-            <motion.p
-              variants={fadeUp}
-              className="mt-3 text-[14px] leading-relaxed text-muted-foreground md:text-[15px]"
-            >
-              {t.hero.subheadlineSecondary}
-            </motion.p>
-
-            <motion.div
-              variants={fadeUp}
-              className="mt-9 grid max-w-md grid-cols-1 gap-3 sm:grid-cols-2"
-            >
-              {actions.map((action) => (
-                <Button key={action.href + action.label} asChild variant={action.variant} size="lg">
-                  <Link
-                    href={action.href}
-                    {...(action.external
-                      ? { target: "_blank", rel: "noopener noreferrer" }
-                      : {})}
-                    {...(action.download ? { download: true } : {})}
-                  >
-                    {action.icon}
-                    {action.label}
-                  </Link>
-                </Button>
-              ))}
-            </motion.div>
-
-            <motion.div variants={fadeUp} className="mt-10 flex flex-wrap gap-2">
-              {t.hero.tags.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] font-medium text-muted"
-                >
-                  {item}
-                </span>
-              ))}
-            </motion.div>
-          </motion.div>
-
-          <HeroTerminal className="lg:justify-self-stretch" />
-        </div>
+          <div data-motion-panel className="hero-showcase">
+            <div className="showcase-toolbar">
+              <p className="text-sm text-muted">{t.hero.featuredLabel}</p>
+              <div className="showcase-selector" role="group" aria-label={t.hero.featuredLabel}>
+                <button type="button" aria-pressed={featured === "nook"} onClick={() => setFeatured("nook")}>Nook</button>
+                <button type="button" aria-pressed={featured === "easycards"} onClick={() => setFeatured("easycards")}>Easy Cards</button>
+              </div>
+            </div>
+            <MotionScene key={featured} className={`showcase-content showcase-${featured}`}>
+              <div className="showcase-description">
+                <p className="mb-3 text-sm text-muted">{project.category}</p>
+                <h2 className="text-3xl font-semibold tracking-tight text-foreground">{project.title}</h2>
+                <p className="mt-4 max-w-[34ch] text-base leading-relaxed text-muted">{project.impact}</p>
+                <Link href={projectLinks[featured]!} target="_blank" rel="noopener noreferrer" className="focus-ring mt-6 inline-flex min-h-11 items-center text-sm font-medium text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent">
+                  {t.systems.openProject}
+                </Link>
+              </div>
+              <div className="showcase-visual">
+                <Image src={image.src} alt={image.alt} width={1080} height={featured === "nook" ? 467 : 1076} priority sizes="(max-width: 768px) 90vw, 650px" />
+              </div>
+            </MotionScene>
+          </div>
+          <div className="hero-bottom">
+            <p>{t.hero.subheadlineSecondary}</p>
+            <Link className="focus-ring inline-flex min-h-11 items-center gap-2 hover:text-foreground" href={siteConfig.cvPath} download>
+              <FileDown size={15} aria-hidden="true" />{t.hero.ctaCv}
+            </Link>
+          </div>
+        </MotionScene>
       </div>
-
-      <motion.div
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
-        aria-hidden="true"
-      >
-        <ArrowDown size={18} className="text-white/35" />
-      </motion.div>
     </section>
   );
 }

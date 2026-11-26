@@ -39,10 +39,7 @@ export function HeroTerminal({ className }: { className?: string }) {
   }
 
   return (
-    <motion.aside
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+    <aside
       className={cn(
         "hero-terminal w-full overflow-hidden rounded-2xl",
         className,
@@ -102,10 +99,10 @@ export function HeroTerminal({ className }: { className?: string }) {
           {tab === "quick" ? (
             <motion.div
               key="quick"
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -6 }}
-              transition={{ duration: 0.25 }}
+              initial={{ opacity: 0, filter: "blur(5px)" }}
+              animate={{ opacity: 1, filter: "blur(0px)" }}
+              exit={{ opacity: 0, filter: "blur(5px)" }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1], opacity: { duration: 0.18 } }}
               className="font-mono text-[13px] leading-relaxed md:text-[14px]"
             >
               <p>
@@ -121,9 +118,9 @@ export function HeroTerminal({ className }: { className?: string }) {
           ) : (
             <motion.div
               key={`feed-${locale}-${index}`}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
+              initial={{ opacity: 0, filter: "blur(5px)" }}
+              animate={{ opacity: 1, filter: "blur(0px)" }}
+              exit={{ opacity: 0, filter: "blur(5px)" }}
               transition={{ duration: 0.3 }}
               className="font-mono text-[12px] leading-relaxed text-muted md:text-[13px]"
               aria-live="polite"
@@ -157,6 +154,6 @@ export function HeroTerminal({ className }: { className?: string }) {
       </div>
 
       <span className="sr-only">{command}</span>
-    </motion.aside>
+    </aside>
   );
 }

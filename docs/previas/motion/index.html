@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Demonstração do Nook</title><link rel="stylesheet" href="../assets/portfolio.css">
+<script src="../assets/gsap.min.js"></script></head>
+<body class="studio">
+<main class="film" data-composition-id="nook-portfolio" data-width="1200" data-height="845" data-duration="12">
+  <div id="demonstracao" class="stage clip" data-start="0" data-duration="12" data-track-index="0">
+    <canvas width="1200" height="845" aria-hidden="true"></canvas>
+    <img class="screen" id="sessions" src="../assets/nook-sessoes.webp" alt="Painel de sessões de agentes do Nook" style="opacity:1">
+    <img class="screen" id="usage" src="../assets/nook-cotas.webp" alt="Painel de cotas por provedor do Nook">
+    <img class="screen closed" id="closed" src="../assets/nook-fechado.webp" alt="Atividade do agente com o notch recolhido" style="opacity:0">
+    <span class="film-label">Nook para macOS</span>
+  </div>
+</main>
+<nav aria-label="Reprodução da demonstração" class="player">
+  <div class="chapters"><button data-chapter="0" aria-pressed="true">Sessões</button><button data-chapter="1">Cotas</button><button data-chapter="2">Fechado</button></div>
+  <button type="button" class="toggle">Reproduzir</button>
+</nav>
+<script src="motion.js"></script></body></html>

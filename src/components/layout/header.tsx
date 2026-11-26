@@ -48,10 +48,7 @@ export function Header() {
   }, [scrolled]);
 
   return (
-    <motion.header
-      initial={{ y: -16, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ delay: 0.15, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+    <header
       className="fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)]"
     >
       <div
@@ -164,6 +161,6 @@ export function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   );
 }

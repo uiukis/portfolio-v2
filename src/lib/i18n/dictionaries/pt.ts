@@ -14,9 +14,10 @@ export const pt: Dictionary = {
     portraitAlt: "Wilker Quirino — Full Stack & AI Engineer",
   },
   nav: {
-    capabilities: "Capacidades",
+    experience: "Experiência",
+    capabilities: "Especialidades",
     impact: "Impacto",
-    systems: "Sistemas",
+    systems: "Projetos",
     approach: "Abordagem",
     contact: "Contato",
     cta: "Vamos conversar",
@@ -31,7 +32,9 @@ export const pt: Dictionary = {
     label: "Idioma",
     switchTo: "Alternar idioma para",
   },
-    loader: {
+  loader: {
+    skip: "Pular intro",
+    replay: "Rever intro",
     title: "wilker",
     subtitle: "Portfolio",
     ready: "Software & AI Engineer",
@@ -49,6 +52,7 @@ export const pt: Dictionary = {
     ],
   },
   hero: {
+    featuredLabel: "Produtos que estou construindo",
     bootLabel: "WQ-OS // PORTFOLIO",
     bootTag: "WQ-OS",
     bootSuffix: "PORTFOLIO",
@@ -60,14 +64,15 @@ export const pt: Dictionary = {
     ],
     intro: "Olá, sou",
     name: "Wilker Quirino",
-    availability: "Engenheiro de Software & IA",
+    currentRole: "Atualmente na Cerus Bank",
+    availability: "Fortaleza, Brasil",
     eyebrow: "Wilker Quirino",
-    headline: "Software Engineer & AI Engineer",
+    headline: "Software & AI Engineer",
     subheadline:
-      "Projeto e entrego sistemas em produção — backends NestJS, fronts modernos, filas assíncronas, LLM e arquitetura event-driven.",
+      "Desenvolvo plataformas financeiras na Cerus Bank e produtos próprios para trabalhar com agentes de IA.",
     subheadlineSecondary:
       "NestJS · Angular · Next.js · RabbitMQ · PostgreSQL · MCP · LLM",
-    ctaSystems: "Ver sistemas",
+    ctaSystems: "Explorar projetos",
     ctaContact: "Conversar",
     ctaCv: "Baixar CV",
     ctaGithub: "Ver no GitHub",
@@ -77,6 +82,125 @@ export const pt: Dictionary = {
     terminalCopied: "Copiado",
     terminalCommand: "open portfolio — wilker quirino",
     tags: ["Control Planes", "MCP · LLM", "Full Stack", "Event-Driven"],
+  },
+  experience: {
+    "label": "Trajetória",
+    "title": "Trajetória profissional",
+    "description": "Os sistemas em que trabalhei e o que ajudei a construir em cada etapa.",
+    "current": "Atual",
+    "items": [
+      {
+        "company": "Cerus Bank",
+        "role": "Dev Full Stack & AI Engineer",
+        "period": "Atual",
+        "current": true,
+        "contributions": [
+          "Desenvolvimento da API NestJS e da interface Angular para a operação de receita garantida e crédito condominial.",
+          "Relatórios financeiros em Excel e PDF com processamento assíncrono via RabbitMQ e armazenamento em S3.",
+          "Piloto da Conta Cerus para centralizar a autenticação dos colaboradores e integrar o login do Service Desk."
+        ],
+        "stack": [
+          "NestJS",
+          "Angular",
+          "RabbitMQ",
+          "PostgreSQL",
+          "S3"
+        ]
+      },
+      {
+        "company": "s4S",
+        "role": "Full Stack & AI Engineer · Freelance",
+        "period": "Ago. 2025",
+        "current": false,
+        "contributions": [
+          "Contratado pela s4S para atuar em projetos de clientes, com entregas full stack, integrações e automação com IA."
+        ],
+        "stack": [
+          "NestJS",
+          "Next.js",
+          "Kafka",
+          "BullMQ",
+          "Prisma"
+        ],
+        "clients": [
+          {
+            "name": "Mútua",
+            "period": "Ago. 2025",
+            "project": "Modernização do CIAP",
+            "contributions": [
+              "Integração de serviços NestJS ao legado SQL Server em um ecossistema de 19 repositórios.",
+              "Processamento de benefícios com Kafka e pipeline de análise documental com IA."
+            ],
+            "stack": [
+              "NestJS",
+              "Next.js",
+              "Kafka",
+              "SQL Server"
+            ]
+          },
+          {
+            "name": "Vidi Tech",
+            "period": "Mai. 2026",
+            "project": "Gateway Pix multi-provider",
+            "contributions": [
+              "Integração com Firebanking, SAQ e Simpay para operações Pix de entrada e saída.",
+              "Filas assíncronas, webhooks multi-tenant e dashboards para a operação financeira."
+            ],
+            "stack": [
+              "NestJS",
+              "BullMQ",
+              "Prisma",
+              "PostgreSQL"
+            ]
+          }
+        ]
+      },
+      {
+        "company": "Cometa Supermercados",
+        "role": "Analista de Desenvolvimento de Sistemas",
+        "period": "Jul. 2023 – jul. 2025",
+        "current": false,
+        "contributions": [
+          "Desenvolvimento de sistemas corporativos utilizados por 38 lojas da rede.",
+          "Criação da aplicação de DRE gerencial e da API de relatórios de vendas, além de manutenção de aplicações Flutter."
+        ],
+        "stack": [
+          "TypeScript",
+          "React",
+          "SQL Server",
+          "Oracle",
+          "Flutter"
+        ]
+      },
+      {
+        "company": "Reali Imobiliária",
+        "role": "Desenvolvedor Web e Mobile",
+        "period": "Dez. 2021 – mai. 2023",
+        "current": false,
+        "contributions": [
+          "Sistemas internos para centralizar imóveis, clientes e transações. Desenvolvimento e manutenção dos aplicativos em React Native."
+        ],
+        "stack": [
+          "React",
+          "Next.js",
+          "React Native"
+        ]
+      },
+      {
+        "company": "Rodobank",
+        "role": "Estágio em Desenvolvimento / QA",
+        "period": "Fev. – abr. 2021",
+        "current": false,
+        "contributions": [
+          "Desenvolvimento de funcionalidades internas e testes de qualidade da plataforma."
+        ],
+        "stack": [
+          "PHP",
+          "Postman"
+        ]
+      }
+    ],
+    "clientLabel": "Atuação em clientes via s4S"
   },
   positioning: {
     fullstackTitle: "Full Stack Engineer",
@@ -119,17 +243,27 @@ export const pt: Dictionary = {
     ],
   },
   impact: {
-    label: "Impacto",
-    title: "Números que importam",
-    description:
-      "Métricas de produção de sistemas que projeto e entrego end-to-end — pessoais e em clientes.",
-    metrics: [
-      { value: "3", label: "Serviços em produção na Cerus Bank (API, front, reports)" },
-      { value: "33+", label: "Repositórios em ecossistemas enterprise e pessoais" },
-      { value: "37", label: "Kafka consumers no módulo de benefícios (Mútua)" },
-      { value: "340+", label: "Arquivos no cockpit 3D Overmind Web" },
-      { value: "7", label: "Backends NestJS no ecossistema Mútua-360" },
-    ],
+    "label": "Contexto de atuação",
+    "title": "Sistemas que atendem operações reais",
+    "description": "A escala dos ambientes em que contribuí com desenvolvimento e integrações.",
+    "metrics": [
+      {
+        "value": "38",
+        "label": "Lojas atendidas pelos sistemas corporativos do Cometa"
+      },
+      {
+        "value": "37",
+        "label": "Consumers Kafka no módulo de benefícios da Mútua"
+      },
+      {
+        "value": "3",
+        "label": "Provedores integrados ao gateway Pix da Vidi Tech"
+      },
+      {
+        "value": "19",
+        "label": "Repositórios no ecossistema Mútua-360"
+      }
+    ]
   },
   systems: {
     label: "Sistemas Selecionados",
@@ -137,13 +271,39 @@ export const pt: Dictionary = {
     description:
       "Case studies separados por projetos pessoais (solo) e entregas em clientes — design de sistema, decisões técnicas e impacto.",
     viewDetails: "Ver detalhes",
+    watchDemo: "Assistir à demonstração",
     openProject: "Abrir projeto",
     groups: [
       {
         key: "personal",
         title: "Projetos pessoais",
         items: [
+{
+    "id": "nook",
+    "title": "Nook",
+    "category": "Desktop · AI tooling",
+    "ownership": "Projeto próprio · macOS e Windows",
+    "impact": "Agentes, cotas e ferramentas do dia a dia, a um passar de mouse.",
+    "description": "Uma central no notch para acompanhar agentes de IA, consultar cotas por provedor e acessar música, arquivos e o histórico da área de transferência."
+},
+{
+    "id": "easycards",
+    "title": "Easy Cards",
+    "category": "Comunidade · TCG",
+    "ownership": "Plataforma para colecionadores",
+    "impact": "Coleções, trocas e operação da comunidade no mesmo lugar.",
+    "description": "Fichários digitais, lista de desejo, sugestões de troca e perfis de colecionadores. O painel da equipe reúne leilões, consignações, permissões e repasses."
+},
+{
+    "id": "turno",
+    "title": "Turno",
+    "category": "AI tooling · Pixel art",
+    "ownership": "Projeto próprio · agentes locais",
+    "impact": "Cada agente ocupa uma mesa. Cada tarefa tem um responsável.",
+    "description": "Escritório em pixel art conectado a ferramentas locais de IA. Conversas por agente, quadro de missões e acompanhamento visual da atividade."
+},
           {
+            id: "overmind",
             title: "Overmind — AI Agent Workspace",
             category: "AI Engineering",
             ownership: "Projeto solo · concepção, arquitetura e build end-to-end",
@@ -152,6 +312,7 @@ export const pt: Dictionary = {
               "Ecossistema pessoal: API como control plane (runs, chat SSE, tasks, offices) e Web como cockpit visual com escritório 3D retro, kanban, approvals e mission control multipane.",
           },
           {
+            id: "office",
             title: "Office — Plataforma B2B2C de Assinaturas",
             category: "Full Stack",
             ownership: "Projeto solo · freelance · produto próprio",
@@ -166,6 +327,7 @@ export const pt: Dictionary = {
         title: "Projetos em clientes",
         items: [
           {
+            id: "cerus",
             title: "Cerus Bank — Finanças condominiais",
             category: "Fintech · Cerus Bank",
             ownership: "Cerus Bank · Dev Full Stack & AI Engineer",
@@ -175,6 +337,7 @@ export const pt: Dictionary = {
               "Fintech especializada em condomínios (Receita Garantida, crédito e inadimplência). API NestJS com consumers de remessas/boletos, front Angular 19, microserviço de relatórios async (Excel/PDF via RabbitMQ + S3) e pipeline de implantação com IA.",
           },
           {
+            id: "mutua",
             title: "Mútua-360 — Modernização CIAP",
             category: "Enterprise · Cliente s4S",
             ownership: "s4S Tech · prestação de serviço para a Mútua",
@@ -184,6 +347,7 @@ export const pt: Dictionary = {
               "Na s4S (fábrica de software em Fortaleza: consultoria, web/mobile, IA e integrações), atuei no Mútua-360 para a Mútua — Caixa de Assistência dos profissionais do Sistema Confea/Crea. Modernização do CIAP com NestJS, Kafka (37 consumers), pipeline documental com IA e Next.js, convivendo com legado SQL Server.",
           },
           {
+            id: "vidi",
             title: "Vidi Tech — Gateway Pix multi-provider",
             category: "Fintech · Cliente s4S",
             ownership: "s4S Tech · prestação de serviço para a Vidi Tech",
@@ -240,9 +404,9 @@ export const pt: Dictionary = {
   },
   philosophy: {
     title: "Filosofia",
-    quote: "Não é quem eu sou por baixo da máscara —",
-    highlight: "é o que eu faço que me define.",
-    footer: "— Bruce Wayne, Batman Begins",
+    quote: "Ler uma embalagem de chiclete",
+    highlight: "e desvendar os segredos do universo.",
+    footer: "Lex Luthor · trecho adaptado, citado em Jogador Nº 1",
   },
   contact: {
     label: "Contato",

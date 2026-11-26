@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import Image from "next/image";
+import { MotionScene } from "@/components/ui/motion-scene";
 import { ArrowUpRight } from "lucide-react";
 import {
-  projectGroups,
+  projectImages,
   projectLinks,
   projectStacks,
   type ProjectId,
@@ -21,7 +22,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { fadeUp, staggerContainer, defaultViewport } from "@/lib/motion";
 
 type SelectedProject = {
   id: ProjectId;
@@ -39,7 +39,6 @@ export function SystemsSection() {
   return (
     <Section
       id="systems"
-      index="04"
       label={t.systems.label}
       title={t.systems.title}
       description={t.systems.description}
@@ -50,23 +49,24 @@ export function SystemsSection() {
             <h3 className="mb-6 text-sm font-medium text-muted">
               {group.title}
             </h3>
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={defaultViewport}
-              variants={staggerContainer}
-              className="flex flex-col gap-6"
+            <div
+              className={group.key === "personal" ? "project-grid" : "client-project-list"}
             >
-              {group.items.map((project, i) => {
-                const config = projectGroups.find((g) => g.key === group.key);
-                const id = config!.projectIds[i];
+              {group.items.map((project) => {
+                const id = project.id;
                 const stack = projectStacks[id];
                 const href = projectLinks[id];
 
                 return (
-                  <motion.div key={id} variants={fadeUp} custom={i}>
-                    <GlowCard className="group">
-                      <article className="relative overflow-hidden p-8 md:p-10">
+                  <MotionScene key={id} className="h-full">
+                    <GlowCard className="project-case group">
+                      <article id={`project-${id}`} className="relative flex h-full flex-col overflow-hidden">
+                        {projectImages[id] && (
+                          <div className={`project-preview project-preview-${id}`}>
+                            <Image src={projectImages[id]!.src} alt={projectImages[id]!.alt} width={1080} height={id === "nook" ? 467 : 1076} className="project-preview-image" sizes="(max-width: 768px) 100vw, 560px" />
+                          </div>
+                        )}
+                        <div className="p-7 md:p-9">
                         <button
                           type="button"
                           className="focus-ring absolute inset-0 z-10 rounded-[inherit]"
@@ -82,13 +82,10 @@ export function SystemsSection() {
                             })
                           }
                         />
-                        <div className="relative z-0 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+                        <div className="case-main relative z-0 flex flex-col gap-6">
                           <div className="flex-1">
                             <div className="mb-4 flex flex-wrap items-center gap-3">
                               <Badge variant="accent">{project.category}</Badge>
-                              <span className="text-xs text-muted-foreground">
-                                {String(i + 1).padStart(2, "0")}
-                              </span>
                             </div>
                             <h4 className="text-2xl font-semibold text-foreground transition-colors group-hover:text-accent">
                               {project.title}
@@ -109,18 +106,13 @@ export function SystemsSection() {
                             </p>
                           </div>
 
-                          <div className="flex flex-wrap gap-2 md:max-w-xs md:justify-end">
-                            {stack.map((tech, j) => (
-                              <motion.span
-                                key={tech}
-                                initial={{ opacity: 0, y: 8 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: j * 0.04 }}
+                          <div className="flex flex-wrap gap-2">
+                            {stack.map((tech) => (
+                              <span key={tech}
                                 className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-muted transition-colors hover:border-white/20 hover:text-foreground"
                               >
                                 {tech}
-                              </motion.span>
+                              </span>
                             ))}
                           </div>
                         </div>
@@ -144,19 +136,20 @@ export function SystemsSection() {
                             <ArrowUpRight size={20} />
                           </div>
                         )}
+                        </div>
                       </article>
                     </GlowCard>
-                  </motion.div>
+                  </MotionScene>
                 );
               })}
-            </motion.div>
+            </div>
           </div>
         ))}
       </div>
 
       <Dialog open={selected !== null} onOpenChange={(open) => !open && setSelected(null)}>
         {selected ? (
-          <DialogContent>
+          <DialogContent className="max-h-[90dvh] overflow-y-auto">
             <DialogHeader>
               <Badge variant="accent" className="mb-3 w-fit">
                 {selected.category}
@@ -167,6 +160,9 @@ export function SystemsSection() {
               ) : null}
               <DialogDescription>{selected.description}</DialogDescription>
             </DialogHeader>
+            {selected.id === "nook" && (
+              <video key={selected.id} controls playsInline preload="none" aria-label={t.systems.watchDemo} className="mx-auto max-h-[45vh] rounded-xl" src="/projects/nook.mp4" />
+            )}
             <p className="text-sm font-medium text-accent">{selected.impact}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {projectStacks[selected.id].map((tech) => (

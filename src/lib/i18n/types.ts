@@ -1,3 +1,4 @@
+import type { ProjectId } from "../site-config";
 import type { Locale } from "./config";
 
 export type Dictionary = {
@@ -13,6 +14,7 @@ export type Dictionary = {
     portraitAlt: string;
   };
   nav: {
+    experience: string;
     capabilities: string;
     impact: string;
     systems: string;
@@ -31,6 +33,8 @@ export type Dictionary = {
     switchTo: string;
   };
   loader: {
+    skip: string;
+    replay: string;
     title: string;
     subtitle: string;
     ready: string;
@@ -41,6 +45,8 @@ export type Dictionary = {
     items: string[];
   };
   hero: {
+    featuredLabel: string;
+    currentRole: string;
     bootLabel: string;
     bootTag: string;
     bootSuffix: string;
@@ -63,6 +69,28 @@ export type Dictionary = {
     terminalCopied: string;
     terminalCommand: string;
     tags: string[];
+  };
+  experience: {
+    clientLabel: string;
+    label: string;
+    title: string;
+    description: string;
+    current: string;
+    items: Array<{
+      company: string;
+      role: string;
+      period: string;
+      current: boolean;
+      clients?: Array<{
+        name: string;
+        period: string;
+        project: string;
+        contributions: string[];
+        stack: string[];
+      }>;
+      contributions: string[];
+      stack: string[];
+    }>;
   };
   positioning: {
     fullstackTitle: string;
@@ -91,11 +119,13 @@ export type Dictionary = {
     title: string;
     description: string;
     viewDetails: string;
+    watchDemo: string;
     openProject: string;
     groups: Array<{
       key: "personal" | "client";
       title: string;
       items: Array<{
+        id: ProjectId;
         title: string;
         category: string;
         ownership?: string;

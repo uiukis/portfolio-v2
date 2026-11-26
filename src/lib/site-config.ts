@@ -10,25 +10,27 @@ export const siteConfig = {
 } as const;
 
 export const navHrefs = [
-  { key: "capabilities" as const, href: "#capabilities" },
-  { key: "impact" as const, href: "#impact" },
   { key: "systems" as const, href: "#systems" },
-  { key: "approach" as const, href: "#approach" },
+  { key: "experience" as const, href: "#experience" },
+  { key: "capabilities" as const, href: "#capabilities" },
   { key: "contact" as const, href: "#contact" },
 ] as const;
 
 export const capabilityIcons = ["brain", "layers", "network", "plug"] as const;
 
-export const projectIds = ["overmind", "mutua", "vidi", "office", "cerus"] as const;
+export const projectIds = ["nook", "easycards", "turno", "overmind", "mutua", "vidi", "office", "cerus"] as const;
 
 export type ProjectId = (typeof projectIds)[number];
 
 export const projectGroups = [
-  { key: "personal" as const, projectIds: ["overmind", "office"] as const },
+  { key: "personal" as const, projectIds: ["nook", "easycards", "turno", "overmind", "office"] as const },
   { key: "client" as const, projectIds: ["cerus", "mutua", "vidi"] as const },
 ] as const;
 
 export const projectStacks: Record<ProjectId, readonly string[]> = {
+  nook: ["SwiftUI", "macOS", "Windows", "AI agents"],
+  easycards: ["Next.js", "TypeScript", "Supabase", "PWA"],
+  turno: ["Node.js", "Pixel art", "SQLite", "AI agents"],
   overmind: ["NestJS 11", "Next.js", "R3F", "Hermes", "Prisma"],
   mutua: ["NestJS", "Kafka", "Prisma", "Docuscan AI", "Next.js"],
   vidi: ["NestJS 11", "BullMQ", "Prisma", "PostgreSQL", "PM2"],
@@ -37,6 +39,13 @@ export const projectStacks: Record<ProjectId, readonly string[]> = {
 };
 
 export const projectLinks: Partial<Record<ProjectId, string>> = {
+  nook: "https://nook-notch-beta.vercel.app/",
+  easycards: "https://easycardstcg.com.br",
   overmind: "https://github.com/uiukis",
   office: "https://github.com/uiukis",
+};
+
+export const projectImages: Partial<Record<ProjectId, { src: string; alt: string }>> = {
+  nook: { src: "/projects/nook.webp", alt: "Nook" },
+  easycards: { src: "/projects/easy-cards.webp", alt: "Easy Cards" },
 };

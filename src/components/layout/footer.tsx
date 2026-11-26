@@ -38,7 +38,7 @@ export function Footer() {
             text={t.footer.role}
             className="mt-1 text-sm text-muted-foreground"
           />
-          <p className="mt-2 text-xs text-muted-foreground">{t.footer.belfry}</p>
+          <button type="button" onClick={() => window.dispatchEvent(new Event("portfolio-replay-intro"))} className="focus-ring mt-2 min-h-11 text-sm text-muted hover:text-foreground">{t.loader.replay}</button>
         </div>
 
         <nav aria-label="Social links">

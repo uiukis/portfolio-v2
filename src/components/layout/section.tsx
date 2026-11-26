@@ -1,9 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { AnimatedText } from "@/components/ui/animated-text";
-import { fadeUp, staggerFast, defaultViewport } from "@/lib/motion";
+import { MotionScene } from "@/components/ui/motion-scene";
 
 interface SectionProps {
   id?: string;
@@ -18,7 +16,6 @@ interface SectionProps {
 
 export function Section({
   id,
-  index,
   headingId,
   children,
   className,
@@ -29,61 +26,20 @@ export function Section({
   const labelledBy = headingId ?? (title && id ? `${id}-heading` : undefined);
 
   return (
-    <section
-      id={id}
-      className={cn("relative py-24 md:py-32", className)}
-      aria-labelledby={labelledBy}
-    >
+    <section id={id} className={cn("portfolio-section relative py-20 md:py-28", className)} aria-labelledby={labelledBy}>
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         {(label || title || description) && (
-          <motion.header
-            className="mb-14 max-w-2xl"
-            initial="hidden"
-            whileInView="visible"
-            viewport={defaultViewport}
-            variants={staggerFast}
-          >
-            {index && (
-              <motion.span
-                variants={fadeUp}
-                className="mb-3 block text-[12px] font-medium tracking-wide text-muted-foreground"
-              >
-                {index}
-              </motion.span>
-            )}
-            {label && (
-              <motion.div variants={fadeUp}>
-                <AnimatedText
-                  as="p"
-                  text={label}
-                  className="mb-3 text-sm font-medium text-muted"
-                />
-              </motion.div>
-            )}
-            {title && (
-              <motion.div variants={fadeUp}>
-                <AnimatedText
-                  as="h2"
-                  id={`${id}-heading`}
-                  text={title}
-                  className="text-3xl font-semibold tracking-tight text-foreground md:text-5xl"
-                />
-              </motion.div>
-            )}
-            <motion.div
-              variants={fadeUp}
-              className="section-line mt-5 max-w-[10rem]"
-            />
-            {description && (
-              <motion.div variants={fadeUp} className="mt-5">
-                <AnimatedText
-                  as="p"
-                  text={description}
-                  className="text-base leading-relaxed text-muted md:text-lg"
-                />
-              </motion.div>
-            )}
-          </motion.header>
+          <MotionScene className="section-heading mb-12 max-w-2xl">
+            <header>
+              {label && <p className="mb-4 text-sm font-medium text-accent">{label}</p>}
+              {title && (
+                <h2 id={labelledBy} className="text-3xl font-semibold leading-[1.12] tracking-tight text-foreground md:text-[2.75rem]">
+                  {title}
+                </h2>
+              )}
+              {description && <p className="mt-5 max-w-xl text-base leading-relaxed text-muted">{description}</p>}
+            </header>
+          </MotionScene>
         )}
         {children}
       </div>
