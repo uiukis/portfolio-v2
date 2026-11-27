@@ -44,30 +44,31 @@ function ConnectionLines({
   );
 }
 
+const [positions, connections] = (() => {
+  const pos = new Float32Array(NODE_COUNT * 3);
+  const conn: [number, number][] = [];
+
+  for (let i = 0; i < NODE_COUNT; i++) {
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.acos(2 * Math.random() - 1);
+    const r = 2.5 + Math.random() * 1.5;
+
+    pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+    pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+    pos[i * 3 + 2] = r * Math.cos(phi);
+  }
+
+  for (let i = 0; i < NODE_COUNT; i++) {
+    const target = (i + 1 + Math.floor(Math.random() * 3)) % NODE_COUNT;
+    conn.push([i, target]);
+  }
+
+  return [pos, conn] as const;
+})();
+
+
 function NeuralNetwork() {
   const ref = useRef<THREE.Points>(null);
-
-  const [positions, connections] = useMemo(() => {
-    const pos = new Float32Array(NODE_COUNT * 3);
-    const conn: [number, number][] = [];
-
-    for (let i = 0; i < NODE_COUNT; i++) {
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos(2 * Math.random() - 1);
-      const r = 2.5 + Math.random() * 1.5;
-
-      pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
-      pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
-      pos[i * 3 + 2] = r * Math.cos(phi);
-    }
-
-    for (let i = 0; i < NODE_COUNT; i++) {
-      const target = (i + 1 + Math.floor(Math.random() * 3)) % NODE_COUNT;
-      conn.push([i, target]);
-    }
-
-    return [pos, conn] as const;
-  }, []);
 
   useFrame((state) => {
     if (!ref.current) return;

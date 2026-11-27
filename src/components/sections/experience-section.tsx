@@ -3,6 +3,7 @@
 import { Plus } from "lucide-react";
 import { Section } from "@/components/layout/section";
 import { MotionScene } from "@/components/ui/motion-scene";
+import { CareerChart } from "@/components/sections/career-chart";
 import { useI18n } from "@/providers/i18n-provider";
 
 export function ExperienceSection() {
@@ -15,11 +16,12 @@ export function ExperienceSection() {
       title={t.experience.title}
       description={t.experience.description}
     >
+      <CareerChart />
       <div className="career-timeline">
         {t.experience.items.map((item) => (
           <MotionScene key={item.company}>
-            <details className="career-entry group" open={item.current || Boolean(item.clients)}>
-              <summary className="focus-ring grid grid-cols-[1fr_auto] cursor-pointer list-none gap-3 py-7 md:grid-cols-[10rem_1fr_auto] md:items-center">
+            <details className="career-entry career-entry-line group" open={item.current || Boolean(item.clients)}>
+              <summary className="focus-ring grid grid-cols-[1fr_auto] cursor-pointer list-none gap-3 py-4 md:grid-cols-[10rem_1fr_auto] md:items-center">
                 <span className="col-start-1 text-sm text-muted">{item.period}</span>
                 <span className="col-start-1 md:col-start-auto">
                   <span className="block text-xl font-semibold text-foreground">{item.company}</span>

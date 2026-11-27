@@ -14,9 +14,11 @@ export function HeroTerminal({ className }: { className?: string }) {
   const [copied, setCopied] = useState(false);
   const items = t.curiosities.items;
 
-  useEffect(() => {
+  const [previousLocale, setPreviousLocale] = useState(locale);
+  if (previousLocale !== locale) {
+    setPreviousLocale(locale);
     setIndex(0);
-  }, [locale]);
+  }
 
   useEffect(() => {
     if (tab !== "feed") return;

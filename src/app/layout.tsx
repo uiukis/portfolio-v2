@@ -5,6 +5,7 @@ import { pt } from "@/lib/i18n/dictionaries/pt";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Providers } from "./providers";
 import { SkipLink } from "@/components/layout/skip-link";
+import { IntroGate } from "@/components/effects/intro-gate";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -108,6 +109,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full bg-background text-foreground antialiased">
+        <IntroGate />
         <Providers>
           <SkipLink />
           <JsonLd />

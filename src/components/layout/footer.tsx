@@ -18,7 +18,7 @@ export function Footer() {
       whileInView="visible"
       viewport={defaultViewport}
       variants={fadeUp}
-      className="border-t border-border/60 py-12 pb-[calc(3rem+env(safe-area-inset-bottom))]"
+      className="border-t border-border/60 py-7 pb-[calc(1.75rem+env(safe-area-inset-bottom))]"
       role="contentinfo"
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 md:flex-row md:items-center md:justify-between">
@@ -65,7 +65,7 @@ export function Footer() {
         </nav>
       </div>
 
-      <Separator className="my-8" />
+      <Separator className="my-5" />
 
       <p className="mx-auto max-w-6xl px-6 text-center text-xs text-muted-foreground">
         © {year} {siteConfig.name}. <AnimatedText text={t.footer.builtWith} />

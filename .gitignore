@@ -42,3 +42,10 @@ docs/cv/rendercv_output/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# HyperFrames working files
+video/**/.hyperframes/
+
+# Rendered videos and large sources generated for them
+video/**/out/
+video/instagram/assets/*.mp4

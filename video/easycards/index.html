@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280, height=720">
+<title>Easy Cards · resumo</title>
+<script src="vendor/gsap.min.js"></script>
+<style>
+  @font-face { font-family: "Luckiest"; src: url("assets/LuckiestGuy.ttf"); }
+  @font-face { font-family: "InterB"; src: url("assets/Inter-Bold.ttf"); }
+  body { margin: 0; background: #d9621a; }
+  #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #d9621a; font-family: "InterB"; color: #fff4dc; }
+  .scene { position: absolute; inset: 0; }
+  .center { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .ring { position: absolute; left: 240px; top: -40px; width: 800px; height: 800px; border-radius: 50%; border: 3px dashed #ffda4366; }
+  #mascot { display: block; width: 400px; height: auto; }
+  .title { margin: 6px 0 0; font: 130px/1.1 "Luckiest"; color: #ffda43; -webkit-text-stroke: 12px #20579a; paint-order: stroke fill; text-shadow: 7px 8px 0 #20579a; white-space: nowrap; }
+  .headline { margin: 0 0 54px; font: 78px/1.1 "Luckiest"; color: #fff4dc; text-shadow: 5px 6px 0 #302b25; white-space: nowrap; }
+  .cards { display: flex; gap: 38px; }
+  .card { display: flex; align-items: center; justify-content: center; width: 330px; height: 230px; border-radius: 26px; border: 6px solid #302b25; background: #fff4dc; color: #302b25; font-size: 40px; text-align: center; box-shadow: 10px 12px 0 #302b2566; }
+  #shot { display: block; width: 960px; height: auto; border-radius: 18px; border: 6px solid #302b25; box-shadow: 14px 18px 0 #302b2566; }
+  .url { margin-top: 30px; padding: 12px 36px; border-radius: 60px; background: #302b25; color: #ffda43; font-size: 36px; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="easycards" data-start="0" data-width="1280" data-height="720" data-duration="9">
+  <section class="scene center clip" data-start="0" data-duration="2.8" data-track-index="0">
+    <div class="ring" data-layout-allow-overflow></div>
+    <img id="mascot" src="assets/easy-cards-mascot.webp" alt="">
+    <h1 class="title" id="title">EASY CARDS</h1>
+  </section>
+  <section class="scene center clip" data-start="2.8" data-duration="3.2" data-track-index="0">
+    <h2 class="headline" id="headline">TUDO NO MESMO LUGAR</h2>
+    <div class="cards">
+      <div class="card" id="c1">Fichários<br>digitais</div>
+      <div class="card" id="c2">Trocas entre<br>colecionadores</div>
+      <div class="card" id="c3">Leilões<br>da comunidade</div>
+    </div>
+  </section>
+  <section class="scene center clip" data-start="6" data-duration="3" data-track-index="0">
+    <img id="shot" src="assets/easy-cards-site.webp" alt="">
+    <div class="url" id="url">easycardstcg.com.br</div>
+  </section>
+</div>
+<script>
+  const tl = gsap.timeline({ paused: true });
+  tl.fromTo(".ring", { scale: .4, opacity: 0, rotation: 0 }, { scale: 1, opacity: 1, rotation: 40, duration: 2.6, ease: "power2.out" }, 0);
+  tl.fromTo("#mascot", { y: 60, scale: .8, rotation: -10 }, { y: 0, scale: 1, rotation: 0, duration: .8, ease: "back.out(1.5)" }, .1);
+  tl.fromTo("#title", { scale: 1.8, opacity: 0 }, { scale: 1, opacity: 1, duration: .5, ease: "power4.in" }, .6);
+  tl.to(["#mascot", "#title"], { y: -60, opacity: 0, duration: .3, ease: "power2.in" }, 2.45);
+  tl.fromTo("#headline", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: .5, ease: "power3.out" }, 2.85);
+  tl.fromTo(["#c1", "#c2", "#c3"], { y: 320, rotation: 12, opacity: 0 }, { y: 0, rotation: (i) => [-4, 0, 4][i], opacity: 1, duration: .7, stagger: .28, ease: "back.out(1.4)" }, 3.15);
+  tl.to(["#headline", "#c1", "#c2", "#c3"], { y: -80, opacity: 0, duration: .3, stagger: .04, ease: "power2.in" }, 5.55);
+  tl.fromTo("#shot", { scale: .6, y: 140, opacity: 0 }, { scale: 1, y: 0, opacity: 1, duration: .8, ease: "power3.out" }, 6.05);
+  tl.fromTo("#url", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: .5, ease: "back.out(1.6)" }, 6.8);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["easycards"] = tl;
+</script>
+</body>
+</html>

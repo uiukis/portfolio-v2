@@ -1,42 +1,51 @@
 /**
- * Shared finite timeline for the website and the HyperFrames composition.
- * All geometry is measured once, before building the paused timeline.
+ * The browser and HyperFrames preview use the same seekable composition.
+ * @param {Element | null} [reveal] The page content behind the intro in the browser.
  */
-export function createBrandIntro(gsap, root, destination, onComplete) {
-  const bounds = root.getBoundingClientRect();
-  const centerX = bounds.width / 2;
-  const centerY = bounds.height / 2;
+export function createBrandIntro(gsap, root, destination, onComplete, reveal = null) {
   const mark = root.querySelector(".brand-intro-mark");
   const name = root.querySelector(".brand-intro-name");
   const flight = root.querySelector(".brand-intro-flight");
-  const paths = mark.querySelectorAll("path");
+  const [letter, cursor] = mark.querySelectorAll("path");
+  const markBounds = mark.getBoundingClientRect();
+  const nameBounds = name.getBoundingClientRect();
+  const centerX = markBounds.left + markBounds.width / 2;
+  const centerY = markBounds.top + markBounds.height / 2;
+  const nameSize = parseFloat(getComputedStyle(name).fontSize);
+  const steps = `steps(${[...name.textContent.trim()].length})`;
   const timeline = gsap.timeline({ paused: true, onComplete });
 
-  for (const path of paths) {
-    const length = path.getTotalLength();
-    timeline.fromTo(path,
-      { strokeDasharray: length, strokeDashoffset: length },
-      { strokeDashoffset: 0, duration: .85, ease: "power2.inOut" }, 0);
+  timeline
+    .fromTo(letter, { opacity: 0 }, { opacity: 1, duration: .09 }, .12)
+    .fromTo(cursor, { opacity: 0 }, { opacity: 1, duration: .12 }, .24)
+    .fromTo(flight, { x: 0, y: 0, scale: 1 }, {
+      x: nameBounds.left - nameSize * .39 - centerX,
+      scale: nameSize * 1.85 / markBounds.width,
+      duration: .46,
+      ease: "power3.inOut",
+    }, .40)
+    .to(cursor, { opacity: 0, duration: .17 }, .65)
+    .fromTo(name, { opacity: 0 }, { opacity: 1, duration: .08 }, .77)
+    .fromTo(name, { "--typed": "0%" }, { "--typed": "100%", duration: .87, ease: steps }, .77)
+    .to(name, { "--typed": "0%", duration: .49, ease: steps }, 1.96)
+    .to(name, { opacity: 0, duration: .12 }, 2.43)
+    .to(cursor, { opacity: 1, duration: .14 }, 2.43)
+    .to(flight, {
+      x: destination.x - centerX,
+      y: destination.y - centerY,
+      scale: destination.width / markBounds.width,
+      duration: 1.07,
+      ease: "power3.inOut",
+    }, 2.53)
+    .fromTo(root.querySelector(".brand-intro-scrim"), { opacity: 1 }, { opacity: 0, duration: .76, ease: "power2.inOut" }, 2.84)
+    .fromTo(root.querySelector(".brand-intro-skip"), { opacity: 1 }, { opacity: 0, duration: .21 }, 2.70);
+
+  if (reveal) {
+    timeline.fromTo(reveal,
+      { y: 14, opacity: .70 },
+      { y: 0, opacity: 1, duration: .64, ease: "power3.out" },
+      2.92);
   }
-  timeline.fromTo(mark,
-    { opacity: 1, scale: 1 },
-    { opacity: 0, scale: .78, duration: .3, ease: "power3.in" }, .85);
-  timeline.fromTo(name,
-    { opacity: 0, y: 12, filter: "blur(9px)", clipPath: "inset(0 45% 0 45%)" },
-    { opacity: 1, y: 0, filter: "blur(0px)", clipPath: "inset(0 0% 0 0%)", duration: .65, ease: "power4.out" }, .95);
-  timeline.fromTo(flight,
-    { x: 0, y: 0, scale: 1 },
-    { x: destination.x - bounds.left - centerX, y: destination.y - bounds.top - centerY,
-      scale: destination.width / 120, duration: .9, ease: "power3.inOut" }, 1.7);
-  timeline.fromTo(name,
-    { opacity: 1, filter: "blur(0px)" },
-    { opacity: 0, filter: "blur(4px)", duration: .22, ease: "power2.in" }, 2.35);
-  timeline.fromTo(mark,
-    { opacity: 0, scale: .78 },
-    { opacity: 1, scale: 1, duration: .35, ease: "power4.out" }, 2.48);
-  timeline.fromTo(root.querySelector(".brand-intro-scrim"),
-    { opacity: 1 }, { opacity: 0, duration: .4, ease: "power2.inOut" }, 2.6);
-  timeline.fromTo(root.querySelector(".brand-intro-skip"),
-    { opacity: 1 }, { opacity: 0, duration: .15 }, 2.6);
+
   return timeline;
 }

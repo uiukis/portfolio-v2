@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080, height=1920">
+<title>Portfólio · Instagram</title>
+<script src="vendor/gsap.min.js"></script>
+<style>
+  @font-face { font-family: "InterB"; src: url("assets/Inter-Bold.ttf"); }
+  @font-face { font-family: "InterR"; src: url("assets/Inter-Regular.ttf"); }
+  @font-face { font-family: "Luckiest"; src: url("assets/LuckiestGuy.ttf"); }
+  body { margin: 0; background: #181319; }
+  #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #181319; color: #fff3e8; font-family: "InterR"; }
+  .glow { position: absolute; left: -260px; top: 160px; width: 1600px; height: 1600px; border-radius: 50%; background: radial-gradient(circle, #5a3445 0%, transparent 62%); }
+  .ring { position: absolute; left: 60px; top: 480px; width: 960px; height: 960px; border-radius: 50%; border: 2px dashed #ffac8140; }
+  .scene { position: absolute; inset: 0; }
+  .abs { position: absolute; left: 0; width: 1080px; text-align: center; }
+  .mark { position: absolute; left: 330px; top: 650px; width: 420px; }
+  h1, h2, p { margin: 0; }
+  .name { top: 990px; font: 118px/1.1 "InterB"; letter-spacing: -.05em; }
+  .l { display: inline-block; }
+  .role { top: 1150px; font-size: 44px; color: #ffac81; }
+  .title { top: 360px; font: 86px/1.12 "InterB"; letter-spacing: -.045em; }
+  .win { position: absolute; border: 2px solid #ffffff2e; border-radius: 34px; background: #1d171ef2; box-shadow: 0 40px 80px #0009; font-family: monospace; }
+  #code { left: 90px; top: 700px; width: 900px; height: 430px; }
+  .bar { padding: 28px 40px; border-bottom: 2px solid #ffffff1f; font-size: 30px; color: #bdaab2; }
+  .line { display: block; width: max-content; padding: 0 46px; font-size: 41px; line-height: 76px; white-space: nowrap; }
+  .line b { font-weight: 400; } .k { color: #ffac81; } .f { color: #f3d3f1; } .s { color: #d6ecb0; }
+  #agent { left: 250px; top: 1120px; width: 740px; height: 320px; padding: 34px 44px; box-sizing: border-box; font-size: 36px; line-height: 62px; }
+  .step { display: block; color: #e6d6dc; } .step i { font-style: normal; color: #d6ecb0; margin-right: 18px; }
+  .chip { position: absolute; padding: 20px 32px; border: 2px solid #ffffff33; border-radius: 28px; background: #241b25; font: 34px monospace; color: #ffd3bd; }
+  .brand { position: absolute; left: 0; top: 270px; width: 1080px; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+  .brand img { width: 210px; height: 210px; object-fit: contain; }
+  .brand strong { font: 92px/1.1 "InterB"; letter-spacing: -.04em; }
+  .brand .ec { font-family: "Luckiest"; text-transform: uppercase; color: #ffda43; -webkit-text-stroke: 12px #20579a; paint-order: stroke fill; }
+  .beta { padding: 6px 28px; border-radius: 14px; background: #f0b48a; color: #1b1c28; font: 34px "InterB"; letter-spacing: .12em; }
+  .frame { position: absolute; left: 40px; width: 1000px; overflow: hidden; border-radius: 30px; border: 2px solid #ffffff33; box-shadow: 0 50px 90px #000a; opacity: 0; }
+  .frame video { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .about { position: absolute; left: 90px; top: 1350px; width: 900px; text-align: center; }
+  .about p { font: 50px/1.3 "InterB"; letter-spacing: -.02em; }
+  .about small { display: block; margin-top: 18px; font-size: 32px; color: #bdaab2; }
+  .quote { position: absolute; left: 100px; width: 880px; text-align: center; font: 60px/1.38 "InterB"; letter-spacing: -.025em; }
+  .w { display: inline-block; }
+  .url { position: absolute; left: 140px; top: 1130px; width: 800px; padding: 34px 0; border-radius: 80px; background: #ffac81; color: #181319; text-align: center; font: 52px "InterB"; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="insta" data-start="0" data-width="1080" data-height="1920" data-duration="27">
+  <div class="glow" id="glow" data-layout-allow-overflow></div>
+  <div class="ring" id="ring" data-layout-allow-overflow></div>
+  <section class="scene clip" id="s1" data-start="0" data-duration="3.2" data-track-index="0">
+    <svg class="mark" id="mark" viewBox="0 0 120 80"><path d="M15 21H25L35 49L48 28L60 49L70 21H80L65 59H56L48 44L39 59H29Z" fill="#fff3e8"/><path id="cursor" d="M79 51H105V59H77Z" fill="#FFAC81"/></svg>
+    <h1 class="abs name" id="name"><span class="l">W</span><span class="l">i</span><span class="l">l</span><span class="l">k</span><span class="l">e</span><span class="l">r</span><span class="l">&nbsp;</span><span class="l">Q</span><span class="l">u</span><span class="l">i</span><span class="l">r</span><span class="l">i</span><span class="l">n</span><span class="l">o</span></h1>
+    <p class="abs role" id="role">Software &amp; AI Engineer</p>
+  </section>
+  <section class="scene clip" id="s2" data-start="3.2" data-duration="5" data-track-index="0">
+    <h2 class="abs title" id="t2">Meu portfólio<br>está no ar</h2>
+    <div class="win" id="code"><div class="bar">agent.ts</div><span class="line"><b class="k">const </b>agent = <b class="k">new </b><b class="f">Agent</b>({</span><span class="line">&nbsp;&nbsp;tools: [api, db, queue],</span><span class="line">});</span><span class="line"><b class="k">await </b>agent.<b class="f">run</b>(<b class="s">"deploy"</b>);</span></div>
+    <div class="win" id="agent"><span class="step"><i>✦</i>automatize esse fluxo</span><span class="step"><i>✓</i>lendo a API</span><span class="step"><i>✓</i>montando a fila</span><span class="step"><i>✓</i>rodando os testes</span></div>
+    <span class="chip" id="chip0" style="left:100px;top:330px">LLM</span><span class="chip" id="chip1" style="left:450px;top:240px">Agents</span><span class="chip" id="chip2" style="left:850px;top:330px">API</span><span class="chip" id="chip3" style="left:90px;top:590px">SQL</span><span class="chip" id="chip4" style="left:800px;top:590px">MCP</span><span class="chip" id="chip5" style="left:80px;top:1240px">Git</span><span class="chip" id="chip6" style="left:260px;top:1480px">Cloud</span><span class="chip" id="chip7" style="left:620px;top:1480px">NestJS</span>
+  </section>
+
+  <section class="scene clip" id="pnook" data-start="8.2" data-duration="4" data-track-index="1">
+    <div class="brand" id="bnook"><img src="assets/nook-icon.svg" alt=""><strong>Nook</strong></div>
+    <div class="about" id="anook"><p>Agentes de IA e cotas<br>direto no notch</p><small>macOS e Windows</small></div>
+  </section>
+  <div class="frame" id="fnook" style="height:432px;top:744px"><video id="vnook" src="assets/nook.mp4" data-start="8.2" data-duration="4" data-media-start="2.4" data-track-index="11" muted playsinline></video></div>
+
+  <section class="scene clip" id="peasycards" data-start="12.2" data-duration="4" data-track-index="2">
+    <div class="brand" id="beasycards"><img src="assets/easy-cards-mascot.webp" alt=""><strong class="ec">Easy Cards</strong></div>
+    <div class="about" id="aeasycards"><p>A casa da comunidade<br>de colecionadores</p><small>Fichários, trocas e leilões</small></div>
+  </section>
+  <div class="frame" id="feasycards" style="height:562px;top:679px"><video id="veasycards" src="assets/easycards.mp4" data-start="12.2" data-duration="4" data-media-start="3.4" data-track-index="12" muted playsinline></video></div>
+
+  <section class="scene clip" id="pturno" data-start="16.2" data-duration="4" data-track-index="3">
+    <div class="brand" id="bturno"><img src="assets/turno-logo.svg" alt=""><strong>turno</strong><span class="beta">EM BETA</span></div>
+    <div class="about" id="aturno"><p>Um escritório em pixel art<br>para agentes locais</p><small>Cada mesa abre a sua conversa</small></div>
+  </section>
+  <div class="frame" id="fturno" style="height:562px;top:679px"><video id="vturno" src="assets/turno.mp4" data-start="16.2" data-duration="4" data-media-start="2.5" data-track-index="13" muted playsinline></video></div>
+  <section class="scene clip" id="s6" data-start="20.2" data-duration="3.6" data-track-index="0">
+    <p class="quote" id="q" style="top:700px"><span class="w">Outras</span> <span class="w">podem</span> <span class="w">ler</span> <span class="w">os</span> <span class="w">ingredientes</span> <span class="w">de</span> <span class="w">um</span> <span class="w">chiclete</span> <span class="w">e</span> <span class="w">desvendar</span> <span class="w">os</span> <span class="w">segredos</span> <span class="w">do</span> <span class="w">universo.</span></p>
+    <p class="abs" id="by" style="top:1160px;font-size:34px;color:#bdaab2">Lex Luthor · Superman (1978)</p>
+  </section>
+  <section class="scene clip" id="s7" data-start="23.8" data-duration="3.2" data-track-index="0">
+    <svg class="mark" id="mark2" viewBox="0 0 120 80" style="top:560px"><path d="M15 21H25L35 49L48 28L60 49L70 21H80L65 59H56L48 44L39 59H29Z" fill="#fff3e8"/><path d="M79 51H105V59H77Z" fill="#FFAC81"/></svg>
+    <h2 class="abs" id="t7" style="top:900px;font:76px 'InterB';letter-spacing:-.04em">Vem conhecer</h2>
+    <div class="url" id="url">uiukis.vercel.app</div>
+  </section>
+</div>
+<script>
+  const tl = gsap.timeline({ paused: true });
+  tl.fromTo("#glow", { scale: .8, y: -120 }, { scale: 1.15, y: 160, duration: 27, ease: "none" }, 0);
+  tl.fromTo("#ring", { rotation: 0 }, { rotation: 220, duration: 27, ease: "none" }, 0);
+  tl.fromTo("#mark", { scale: .5 }, { scale: 1, duration: .8, ease: "back.out(1.8)" }, 0);
+  tl.fromTo("#cursor", { opacity: 1 }, { opacity: 0, duration: .25, repeat: 9, yoyo: true, ease: "steps(1)" }, .4);
+  tl.fromTo("#name .l", { y: 90, rotationX: -90, opacity: 0 }, { y: 0, rotationX: 0, opacity: 1, duration: .55, stagger: .05, ease: "back.out(1.6)" }, .35);
+  tl.fromTo("#role", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: .45 }, 1.4);
+  tl.to(["#mark", "#name", "#role"], { y: -90, opacity: 0, duration: .35, stagger: .04, ease: "power2.in" }, 2.75);
+  tl.fromTo("#t2", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: .5, ease: "power3.out" }, 3.25);
+  tl.fromTo("#code", { y: 260, scale: .85, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: .7, ease: "power3.out" }, 3.4);
+  tl.fromTo(".line", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: .5, stagger: .45, ease: "steps(22)" }, 3.9);
+  tl.fromTo("#agent", { x: 300, opacity: 0 }, { x: 0, opacity: 1, duration: .6, ease: "back.out(1.4)" }, 5.2);
+  tl.fromTo(".step", { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: .3, stagger: .4 }, 5.6);
+  tl.fromTo(".chip", { scale: 0, rotation: -20 }, { scale: 1, rotation: 0, duration: .5, stagger: .09, ease: "back.out(2.2)" }, 3.8);
+  tl.to(["#t2", "#code", "#agent", ".chip"], { y: -70, opacity: 0, duration: .3, ease: "power2.in" }, 7.85);
+  [["nook", 8.2], ["easycards", 12.2], ["turno", 16.2]].forEach(([k, t], i) => {
+    tl.fromTo("#b" + k, { y: -80, scale: .7, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: .55, ease: "back.out(1.7)" }, t + .05);
+    tl.fromTo("#f" + k, { opacity: 0, scale: .75, y: 160, rotationY: i % 2 ? -22 : 22, transformPerspective: 1600 }, { opacity: 1, scale: 1, y: 0, rotationY: 0, duration: .7, ease: "power3.out" }, t + .15);
+    tl.to("#f" + k, { scale: 1.05, duration: 2.8, ease: "none" }, t + .85);
+    tl.fromTo("#a" + k, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: .5, ease: "power3.out" }, t + .45);
+    tl.to(["#b" + k, "#a" + k], { opacity: 0, duration: .25 }, t + 3.7);
+    tl.to("#f" + k, { x: -1150, rotation: -6, opacity: 0, duration: .3, ease: "power2.in" }, t + 3.68);
+  });
+  tl.fromTo("#q .w", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: .35, stagger: .1 }, 20.3);
+  tl.fromTo("#by", { opacity: 0 }, { opacity: 1, duration: .4 }, 22);
+  tl.to(["#q", "#by"], { opacity: 0, y: -50, duration: .3 }, 23.45);
+  tl.fromTo("#mark2", { scale: .4, opacity: 0 }, { scale: 1, opacity: 1, duration: .6, ease: "back.out(1.8)" }, 23.85);
+  tl.fromTo("#t7", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: .5 }, 24.2);
+  tl.fromTo("#url", { scale: .5, opacity: 0 }, { scale: 1, opacity: 1, duration: .55, ease: "back.out(1.8)" }, 24.55);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["insta"] = tl;
+</script>
+</body>
+</html>

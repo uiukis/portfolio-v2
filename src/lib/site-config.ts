@@ -18,12 +18,12 @@ export const navHrefs = [
 
 export const capabilityIcons = ["brain", "layers", "network", "plug"] as const;
 
-export const projectIds = ["nook", "easycards", "turno", "overmind", "mutua", "vidi", "office", "cerus"] as const;
+export const projectIds = ["nook", "easycards", "turno", "mutua", "vidi", "cerus"] as const;
 
 export type ProjectId = (typeof projectIds)[number];
 
 export const projectGroups = [
-  { key: "personal" as const, projectIds: ["nook", "easycards", "turno", "overmind", "office"] as const },
+  { key: "personal" as const, projectIds: ["nook", "easycards", "turno"] as const },
   { key: "client" as const, projectIds: ["cerus", "mutua", "vidi"] as const },
 ] as const;
 
@@ -31,21 +31,18 @@ export const projectStacks: Record<ProjectId, readonly string[]> = {
   nook: ["SwiftUI", "macOS", "Windows", "AI agents"],
   easycards: ["Next.js", "TypeScript", "Supabase", "PWA"],
   turno: ["Node.js", "Pixel art", "SQLite", "AI agents"],
-  overmind: ["NestJS 11", "Next.js", "R3F", "Hermes", "Prisma"],
   mutua: ["NestJS", "Kafka", "Prisma", "Docuscan AI", "Next.js"],
   vidi: ["NestJS 11", "BullMQ", "Prisma", "PostgreSQL", "PM2"],
-  office: ["NestJS 11", "Next.js 16", "Prisma", "Evolution API"],
   cerus: ["NestJS 10", "Angular 19", "RabbitMQ", "PostgreSQL", "S3", "PM2"],
 };
 
 export const projectLinks: Partial<Record<ProjectId, string>> = {
   nook: "https://nook-notch-beta.vercel.app/",
   easycards: "https://easycardstcg.com.br",
-  overmind: "https://github.com/uiukis",
-  office: "https://github.com/uiukis",
 };
 
 export const projectImages: Partial<Record<ProjectId, { src: string; alt: string }>> = {
   nook: { src: "/projects/nook.webp", alt: "Nook" },
-  easycards: { src: "/projects/easy-cards.webp", alt: "Easy Cards" },
+  easycards: { src: "/projects/easy-cards-site.webp", alt: "Easy Cards" },
+  turno: { src: "/projects/turno.webp", alt: "Turno" },
 };

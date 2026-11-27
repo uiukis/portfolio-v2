@@ -1,8 +1,8 @@
 export function Monogram({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 108 80" fill="none" className={className} aria-hidden="true">
-      <path d="M8 18 L17 58 L31 31 L45 58 L54 18" stroke="currentColor" strokeWidth="6.5" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M80 18 C57 18 57 58 80 58 C103 58 103 18 80 18 Z M81 45 L96 64" stroke="#8BBCFF" strokeWidth="6.5" strokeLinecap="round" strokeLinejoin="round" />
+    <svg viewBox="0 0 120 80" className={className} aria-hidden="true">
+      <path d="M15 21H25L35 49L48 28L60 49L70 21H80L65 59H56L48 44L39 59H29Z" fill="currentColor" />
+      <path d="M79 51H105V59H77Z" fill="#FFAC81" />
     </svg>
   );
 }

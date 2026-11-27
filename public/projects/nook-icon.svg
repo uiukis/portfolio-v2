@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A1D63"/><stop offset="1" stop-color="#150F32"/></linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FAF0FF"/><stop offset="1" stop-color="#D1C7F5"/></linearGradient>
+    <clipPath id="tile"><rect x="100" y="100" width="824" height="824" rx="185"/></clipPath>
+  </defs>
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bg)"/>
+  <g clip-path="url(#tile)">
+    <g id="letter" transform="translate(512 480) scale(0.9) translate(-512 -512)">
+      <polygon points="290,330 410,330 734,694 614,694" fill="#A98BFF"/>
+      <rect x="270" y="290" width="140" height="800" rx="70" fill="#EDE4FF"/>
+      <rect x="614" y="-70" width="140" height="814" rx="70" fill="#EDE4FF"/>
+    </g>
+    <g id="robot" transform="translate(-131 0)">
+      <rect x="702.0" y="712" width="192.0" height="168.0" rx="72.0" fill="url(#body)" stroke="#fff" stroke-opacity="0.6" stroke-width="5.0"/>
+      <ellipse cx="734.0" cy="815.0" rx="16.0" ry="9.0" fill="#FF8C9E" opacity="0.45"/>
+      <ellipse cx="862.0" cy="815.0" rx="16.0" ry="9.0" fill="#FF8C9E" opacity="0.45"/>
+      <rect x="745.0" y="761.0" width="26.0" height="38.0" rx="13.0" fill="#211C30"/>
+      <circle cx="754.0" cy="770.0" r="5.6" fill="#fff" opacity="0.9"/>
+      <rect x="825.0" y="761.0" width="26.0" height="38.0" rx="13.0" fill="#211C30"/>
+      <circle cx="834.0" cy="770.0" r="5.6" fill="#fff" opacity="0.9"/>
+      <path d="M782.0 810.0 Q798.0 828.0 814.0 810.0" fill="none" stroke="#211C30" stroke-width="8.0" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>

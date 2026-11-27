@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Wilker Quirino — 10s</title>
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      body { margin: 0; background: #181319; color: #fff3e8; font-family: system-ui, sans-serif; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #181319; }
+      .bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 70% 30%, #5a3646, transparent 70%); }
+      .lines { position: absolute; inset: 0; background: repeating-linear-gradient(115deg, #ffe4d712 0 1px, transparent 1px 64px); }
+      .clip { position: absolute; inset: 0; }
+      .mono { font-family: ui-monospace, monospace; }
+      .accent { color: #ffac81; }
+      .muted { color: #cbb7ba; }
+
+      /* A — name */
+      .mark { position: absolute; left: 160px; top: 150px; font-size: 120px; font-weight: 700; letter-spacing: -6px; display: flex; align-items: flex-end; }
+      .mark i { display: block; width: 62px; height: 14px; margin: 0 0 20px 6px; background: #ffac81; }
+      .name { position: absolute; left: 150px; top: 380px; font-size: 220px; line-height: 1; font-weight: 640; letter-spacing: -14px; white-space: nowrap; }
+      .w { display: inline-block; overflow: hidden; padding-bottom: 24px; margin-bottom: -24px; vertical-align: top; }
+      .w b { display: inline-block; font-weight: inherit; }
+      .role { position: absolute; left: 166px; top: 715px; font-size: 44px; letter-spacing: 1px; }
+      .rule { position: absolute; left: 166px; top: 825px; width: 1588px; height: 2px; background: #ffac81; transform-origin: left; }
+      .loc { position: absolute; left: 166px; top: 865px; font-size: 32px; }
+
+      /* B — projects */
+      .shot { position: absolute; width: 1100px; filter: drop-shadow(0 50px 60px #000a); }
+      .shot img { display: block; width: 100%; border-radius: 18px; }
+      .p-title { position: absolute; font-size: 170px; font-weight: 640; letter-spacing: -9px; line-height: 1; }
+      .p-copy { position: absolute; font-size: 40px; line-height: 1.4; max-width: 640px; }
+      .p-cat { position: absolute; font-size: 30px; letter-spacing: 1px; }
+
+      /* C — stats */
+      .stat { position: absolute; top: 380px; width: 400px; }
+      .stat .n { font-size: 230px; font-weight: 500; letter-spacing: -10px; line-height: 1; }
+      .stat .l { margin-top: 24px; font-size: 32px; line-height: 1.4; max-width: 340px; }
+      .stat .bar { height: 3px; width: 100%; background: #ffac81; transform-origin: left; margin-top: 30px; }
+      .cap { position: absolute; left: 166px; top: 190px; font-size: 56px; font-weight: 600; letter-spacing: -2px; }
+
+      /* D — close */
+      .cta { position: absolute; left: 166px; top: 190px; font-size: 190px; font-weight: 640; letter-spacing: -10px; line-height: 1.05; }
+      .mail { position: absolute; left: 170px; top: 760px; font-size: 64px; letter-spacing: -1px; padding-bottom: 14px; border-bottom: 3px solid #ffac81; }
+      .site { position: absolute; left: 170px; top: 890px; font-size: 36px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-width="1920" data-height="1080" data-duration="10">
+      <div class="bg" id="bg"></div>
+      <div class="lines" id="lines"></div>
+
+      <section class="clip" id="sA" data-start="0" data-duration="2.4">
+        <div id="sA-in" style="position:absolute;inset:0">
+          <div class="mark" id="mark">W<i></i></div>
+          <h1 class="name" id="name"><span class="w"><b>Wilker</b></span> <span class="w"><b>Quirino</b></span></h1>
+          <p class="role mono accent" id="role">Software &amp; AI Engineer</p>
+          <div class="rule" id="rule"></div>
+          <p class="loc mono muted" id="loc">Fortaleza, Brasil</p>
+        </div>
+      </section>
+
+      <section class="clip" id="sB1" data-start="2.2" data-duration="1.6">
+        <div id="sB1-in" style="position:absolute;inset:0">
+          <div class="shot" id="shot1" style="left:700px;top:330px"><img src="assets/nook.webp" alt="" /></div>
+          <p class="p-cat mono accent" id="cat1" style="left:166px;top:300px">Desktop · AI tooling</p>
+          <h2 class="p-title" id="t1" style="left:160px;top:350px">Nook</h2>
+        </div>
+      </section>
+
+      <section class="clip" id="sB2" data-start="3.7" data-duration="1.6">
+        <div id="sB2-in" style="position:absolute;inset:0">
+          <div class="shot" id="shot2" style="left:1050px;top:200px;width:560px"><img src="assets/easy-cards.webp" alt="" /></div>
+          <p class="p-cat mono accent" id="cat2" style="left:166px;top:300px">Comunidade · TCG</p>
+          <h2 class="p-title" id="t2" style="left:160px;top:350px">Easy Cards</h2>
+        </div>
+      </section>
+
+      <section class="clip" id="sC" data-start="5.2" data-duration="2.4">
+        <div id="sC-in" style="position:absolute;inset:0">
+          <p class="cap" id="cap">Sistemas que atendem operações reais</p>
+          <div class="stat" style="left:166px"><div class="n" id="n1">0</div><div class="l muted">Lojas atendidas pelos sistemas do Cometa</div><div class="bar" id="b1"></div></div>
+          <div class="stat" style="left:626px"><div class="n" id="n2">0</div><div class="l muted">Consumers Kafka no módulo de benefícios</div><div class="bar" id="b2"></div></div>
+          <div class="stat" style="left:1086px"><div class="n" id="n3">0</div><div class="l muted">Provedores no gateway Pix</div><div class="bar" id="b3"></div></div>
+          <div class="stat" style="left:1546px"><div class="n" id="n4">0</div><div class="l muted">Repos do ecossistema Mútua-360</div><div class="bar" id="b4"></div></div>
+        </div>
+      </section>
+
+      <section class="clip" id="sD" data-start="7.5" data-duration="2.5">
+        <div id="sD-in" style="position:absolute;inset:0">
+          <h2 class="cta" id="cta"><span class="w"><b>Vamos</b></span> <span class="w"><b>construir</b></span><br /><span class="w"><b class="accent">algo?</b></span></h2>
+          <p class="mail mono" id="mail">wilker.quirino99@gmail.com</p>
+          <p class="site mono muted" id="site">uiukis.vercel.app</p>
+        </div>
+      </section>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const out = (id, at) => tl.fromTo(id, { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "power2.in" }, at);
+
+      // Slow drift on the backdrop for the whole piece.
+      tl.fromTo("#bg", { xPercent: -6, scale: 1.1 }, { xPercent: 6, scale: 1, duration: 10, ease: "none" }, 0);
+      tl.fromTo("#lines", { xPercent: 0 }, { xPercent: -4, duration: 10, ease: "none" }, 0);
+
+      // A — waterfall name, monogram, rule
+      tl.fromTo("#mark", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.1);
+      tl.fromTo("#name .w b", { yPercent: 115 }, { yPercent: 0, duration: 0.7, stagger: 0.14, ease: "power4.out" }, 0.25);
+      tl.fromTo("#role", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.8);
+      tl.fromTo("#rule", { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: "power3.inOut" }, 0.8);
+      tl.fromTo("#loc", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 1.2);
+      out("#sA-in", 2.05);
+
+      // B1 — Nook, camera flight in from depth
+      tl.fromTo("#shot1", { rotateY: -22, rotateX: 8, z: -400, x: 160, opacity: 0, transformPerspective: 1600 }, { rotateY: -8, rotateX: 3, z: 0, x: 0, opacity: 1, duration: 0.9, ease: "power4.out" }, 2.2);
+      tl.fromTo("#shot1", { scale: 1 }, { scale: 1.05, duration: 1.2, ease: "none" }, 2.7);
+      tl.fromTo("#cat1", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 2.4);
+      tl.fromTo("#t1", { yPercent: 40, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.6, ease: "power4.out" }, 2.45);
+      out("#sB1-in", 3.5);
+
+      // B2 — Easy Cards
+      tl.fromTo("#shot2", { rotateY: 22, rotateX: -6, z: -400, y: 120, opacity: 0, transformPerspective: 1600 }, { rotateY: 8, rotateX: -2, z: 0, y: 0, opacity: 1, duration: 0.9, ease: "power4.out" }, 3.7);
+      tl.fromTo("#cat2", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 3.9);
+      tl.fromTo("#t2", { yPercent: 40, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.6, ease: "power4.out" }, 3.95);
+      out("#sB2-in", 5.0);
+
+      // C — stats count up
+      tl.fromTo("#cap", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 5.3);
+      [["n1", "b1", 38], ["n2", "b2", 37], ["n3", "b3", 3], ["n4", "b4", 19]].forEach(([n, b, value], i) => {
+        const counter = { v: 0 };
+        const el = document.getElementById(n);
+        tl.fromTo(`#${n}`, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 5.5 + i * 0.1);
+        tl.fromTo(counter, { v: 0 }, { v: value, duration: 1.0, ease: "power2.out", onUpdate: () => { el.textContent = String(Math.round(counter.v)); } }, 5.5 + i * 0.1);
+        tl.fromTo(`#${b}`, { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power3.inOut" }, 5.8 + i * 0.1);
+      });
+      out("#sC-in", 7.3);
+
+      // D — close, held for the last 2.4 s
+      tl.fromTo("#cta .w b", { yPercent: 115 }, { yPercent: 0, duration: 0.7, stagger: 0.12, ease: "power4.out" }, 7.55);
+      tl.fromTo("#mail", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 7.7);
+      tl.fromTo("#site", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 7.85);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

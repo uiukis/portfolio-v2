@@ -18,9 +18,11 @@ export function HeroCuriosities({ className, floating = false }: HeroCuriosities
   const items = t.curiosities.items;
   const [index, setIndex] = useState(0);
 
-  useEffect(() => {
+  const [previousLocale, setPreviousLocale] = useState(locale);
+  if (previousLocale !== locale) {
+    setPreviousLocale(locale);
     setIndex(0);
-  }, [locale]);
+  }
 
   useEffect(() => {
     const timer = setInterval(() => {

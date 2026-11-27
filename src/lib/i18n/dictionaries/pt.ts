@@ -48,7 +48,6 @@ export const pt: Dictionary = {
       "s4S — fábrica de software (Fortaleza): AI, APIs, web/mobile e integrações.",
       "Mútua via s4S — modernização do CIAP (Caixa de Assistência do Sistema Confea/Crea).",
       "Vidi Tech via s4S — gateway Pix multi-provider (BaaS/CaaS).",
-      "Overmind — control plane + cockpit 3D com 340+ arquivos no web.",
     ],
   },
   hero: {
@@ -64,12 +63,11 @@ export const pt: Dictionary = {
     ],
     intro: "Olá, sou",
     name: "Wilker Quirino",
-    currentRole: "Atualmente na Cerus Bank",
     availability: "Fortaleza, Brasil",
     eyebrow: "Wilker Quirino",
     headline: "Software & AI Engineer",
     subheadline:
-      "Desenvolvo plataformas financeiras na Cerus Bank e produtos próprios para trabalhar com agentes de IA.",
+      "Desenvolvo sistemas web, integro APIs e automatizo fluxos de trabalho com agentes de IA.",
     subheadlineSecondary:
       "NestJS · Angular · Next.js · RabbitMQ · PostgreSQL · MCP · LLM",
     ctaSystems: "Explorar projetos",
@@ -208,7 +206,7 @@ export const pt: Dictionary = {
       "End-to-end — NestJS com use-cases, Prisma multi-schema, Next.js com dashboards operacionais. De plataformas B2B2C de assinatura a gateways Pix multi-provider, com e2e Playwright nos fluxos críticos.",
     aiTitle: "AI Engineer",
     aiDesc:
-      "Control planes para agentes, runtime Hermes via stdio/SSE, cockpits 3D com R3F e pipelines de análise documental com IA — sempre com separação clara entre orquestração e execução.",
+      "Control planes para agentes, runtimes via stdio/SSE, cockpits 3D com R3F e pipelines de análise documental com IA — sempre com separação clara entre orquestração e execução.",
   },
   capabilities: {
     label: "Capacidades",
@@ -219,8 +217,8 @@ export const pt: Dictionary = {
       {
         title: "AI Agents & Control Planes",
         description:
-          "Ecossistemas de agentes com runtime provider abstraction (Hermes, gateway protocols), agent runs com SSE, approvals human-in-the-loop e persistência de missões — executor separado do produto.",
-        metrics: ["Overmind API + Web", "Hermes stdio bridge", "SSE streaming"],
+          "Ecossistemas de agentes com runtime provider abstraction (gateway protocols), agent runs com SSE, approvals human-in-the-loop e persistência de missões — executor separado do produto.",
+        metrics: ["Human-in-the-loop", "SSE streaming"],
       },
       {
         title: "Full Stack Systems",
@@ -277,6 +275,7 @@ export const pt: Dictionary = {
       {
         key: "personal",
         title: "Projetos pessoais",
+        note: "Obs.: também construí o Office, uma plataforma B2B2C de assinaturas (freelance, produto próprio).",
         items: [
 {
     "id": "nook",
@@ -298,28 +297,10 @@ export const pt: Dictionary = {
     "id": "turno",
     "title": "Turno",
     "category": "AI tooling · Pixel art",
-    "ownership": "Projeto próprio · agentes locais",
+    "ownership": "Projeto próprio · agentes locais · em beta",
     "impact": "Cada agente ocupa uma mesa. Cada tarefa tem um responsável.",
     "description": "Escritório em pixel art conectado a ferramentas locais de IA. Conversas por agente, quadro de missões e acompanhamento visual da atividade."
 },
-          {
-            id: "overmind",
-            title: "Overmind — AI Agent Workspace",
-            category: "AI Engineering",
-            ownership: "Projeto solo · concepção, arquitetura e build end-to-end",
-            impact: "Control plane + cockpit 3D para agentes locais com audit trail completo",
-            description:
-              "Ecossistema pessoal: API como control plane (runs, chat SSE, tasks, offices) e Web como cockpit visual com escritório 3D retro, kanban, approvals e mission control multipane.",
-          },
-          {
-            id: "office",
-            title: "Office — Plataforma B2B2C de Assinaturas",
-            category: "Full Stack",
-            ownership: "Projeto solo · freelance · produto próprio",
-            impact: "28 rotas de dashboard, hierarquia multi-nível de parceiros e sync com painel externo",
-            description:
-              "Plataforma B2B2C completa: assinaturas, billing, catálogo, infraestrutura de entrega, tickets, analytics, gamificação e integração WhatsApp — com e2e Playwright e RBAC.",
-          },
         ],
       },
       {
@@ -364,17 +345,17 @@ export const pt: Dictionary = {
     label: "Abordagem",
     title: "Como eu trabalho",
     description:
-      "Padrões extraídos de projetos reais — Cerus Bank, s4S (Mútua, Vidi Tech), Overmind, Office — e ecossistemas multi-repo enterprise.",
+      "Padrões extraídos de projetos reais — Cerus Bank, s4S (Mútua, Vidi Tech), Office — e ecossistemas multi-repo enterprise.",
     items: [
       {
         title: "Control plane ≠ Executor",
         description:
-          "O produto orquestra, audita e aprova — a execução fica no runtime (Hermes, gateway, workers). Autonomia rastreável e cancelável.",
+          "O produto orquestra, audita e aprova — a execução fica no runtime (gateway, workers). Autonomia rastreável e cancelável.",
       },
       {
         title: "Provider abstraction",
         description:
-          "Runtimes intercambiáveis via interface comum — Hermes, Mock, gateway legacy — sem reescrever UI ou persistência a cada mudança.",
+          "Runtimes intercambiáveis via interface comum — Mock, gateway legacy — sem reescrever UI ou persistência a cada mudança.",
       },
       {
         title: "Legado convive com moderno",
@@ -394,7 +375,7 @@ export const pt: Dictionary = {
       {
         title: "Testa o que importa",
         description:
-          "30+ specs no runtime Hermes, e2e Playwright nos fluxos críticos — cobertura focada em boundaries e integrações.",
+          "Testes e2e com Playwright nos fluxos críticos — cobertura focada em boundaries e integrações.",
       },
     ],
     engineeringQuote: "O produto orquestra e audita — o runtime executa.",
@@ -404,9 +385,9 @@ export const pt: Dictionary = {
   },
   philosophy: {
     title: "Filosofia",
-    quote: "Ler uma embalagem de chiclete",
-    highlight: "e desvendar os segredos do universo.",
-    footer: "Lex Luthor · trecho adaptado, citado em Jogador Nº 1",
+    quote: "Algumas pessoas podem ler Guerra e Paz e sair pensando que é uma simples história de aventura.",
+    highlight: "Outras podem ler os ingredientes de um chiclete e desvendar os segredos do universo.",
+    footer: "Lex Luthor · Superman (1978), citado em Jogador Nº 1",
   },
   contact: {
     label: "Contato",
@@ -421,7 +402,7 @@ export const pt: Dictionary = {
   },
   footer: {
     role: "Software & AI Engineer",
-    builtWith: "Feito com Next.js, React Three Fiber & Framer Motion.",
+    builtWith: "Feito com Next.js, GSAP & HyperFrames.",
     belfry: "Engineered from the Belfry.",
   },
   devBanner: {

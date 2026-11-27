@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -28,24 +28,34 @@ export function Header() {
   const { t } = useI18n();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuToggle = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 28);
+    const onScroll = () => {
+      const pastHeader = window.scrollY > 28;
+      setScrolled(pastHeader);
+      if (!pastHeader) setMobileOpen(false);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    if (!mobileOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape" || event.defaultPrevented) return;
+      setMobileOpen(false);
+      menuToggle.current?.focus();
+    };
+    window.addEventListener("keydown", closeOnEscape);
     return () => {
-      document.body.style.overflow = "";
+      window.removeEventListener("keydown", closeOnEscape);
+      document.body.style.overflow = previousOverflow;
     };
   }, [mobileOpen]);
-
-  useEffect(() => {
-    if (!scrolled) setMobileOpen(false);
-  }, [scrolled]);
 
   return (
     <header
@@ -55,7 +65,7 @@ export function Header() {
         className={cn(
           "mx-auto transition-[max-width,margin,padding,border-radius,background-color,box-shadow,border-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
           scrolled
-            ? "mt-3 max-w-[min(100%-1.5rem,56rem)] rounded-full border border-white/10 bg-[#0c1018]/82 px-3 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.65)] backdrop-blur-xl sm:px-4 md:mt-4 md:max-w-[min(100%-2rem,64rem)] md:px-5"
+            ? "mt-3 max-w-[min(100%-1.5rem,56rem)] rounded-full border border-white/10 bg-[#251b25]/82 px-3 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.65)] backdrop-blur-xl sm:px-4 md:mt-4 md:max-w-[min(100%-2rem,64rem)] md:px-5"
             : "mt-0 max-w-6xl border border-transparent bg-transparent px-4 py-0 md:px-6",
         )}
       >
@@ -90,7 +100,7 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                "focus-ring items-center gap-2 rounded-full bg-white px-3.5 py-1.5 text-[13px] font-medium text-black transition-all duration-300 hover:bg-white/90",
+                "focus-ring items-center gap-2 rounded-full bg-accent px-3.5 py-1.5 text-[13px] font-medium text-background transition-all duration-300 hover:bg-accent-secondary",
                 scrolled ? "hidden sm:inline-flex" : "hidden",
               )}
             >
@@ -99,6 +109,7 @@ export function Header() {
             </Link>
 
             <button
+              ref={menuToggle}
               type="button"
               className="focus-ring flex h-10 w-10 items-center justify-center rounded-full text-white/70 transition-colors hover:bg-white/10 hover:text-white lg:hidden"
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -121,7 +132,7 @@ export function Header() {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.22 }}
             className={cn(
-              "mx-auto mt-2 overflow-hidden border border-white/10 bg-[#0c1018]/94 backdrop-blur-xl pb-[env(safe-area-inset-bottom)] lg:hidden",
+              "mx-auto mt-2 overflow-hidden border border-white/10 bg-[#251b25]/94 backdrop-blur-xl pb-[env(safe-area-inset-bottom)] lg:hidden",
               scrolled
                 ? "max-w-[min(100%-1.5rem,56rem)] rounded-3xl md:max-w-[min(100%-2rem,64rem)]"
                 : "max-w-6xl rounded-2xl mx-4 md:mx-6",
@@ -134,7 +145,7 @@ export function Header() {
                   href={siteConfig.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="focus-ring inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-[13px] font-medium text-black"
+                  className="focus-ring inline-flex items-center gap-2 rounded-full bg-accent px-3 py-1.5 text-[13px] font-medium text-background"
                   onClick={() => setMobileOpen(false)}
                 >
                   <GitHubIcon size={14} />

@@ -5,6 +5,11 @@ import { Header } from "@/components/layout/header";
 import { DevBanner } from "@/components/layout/dev-banner";
 import { Footer } from "@/components/layout/footer";
 import { ScrollProgress } from "@/components/effects/scroll-progress";
+import { SectionAtmosphere } from "@/components/effects/section-atmosphere";
+import { ScrollChoreography } from "@/components/effects/scroll-choreography";
+import { CursorLabel } from "@/components/effects/cursor-label";
+import { SoundToggle } from "@/components/effects/sound-toggle";
+import { PageBuild } from "@/components/effects/page-build";
 import { PageLoader } from "@/components/effects/page-loader";
 import { HeroSection } from "@/components/sections/hero-section";
 
@@ -38,11 +43,16 @@ export function HomePageContent() {
   return (
     <>
       <PageLoader />
+      <PageBuild />
       <ScrollProgress />
+      <CursorLabel />
+      <SoundToggle />
 
       <DevBanner />
       <Header />
-      <main id="main-content">
+      <main id="main-content" className="portfolio-main">
+        <SectionAtmosphere />
+        <ScrollChoreography />
         <HeroSection />
         <SystemsSection />
         <ExperienceSection />

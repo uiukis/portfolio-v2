@@ -1,8 +1,12 @@
-.brand-intro{position:fixed;inset:0;z-index:100;overflow:hidden;color:#eaf2ff;font-family:inherit}
-.brand-intro-scrim{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 48%,#14243c 0%,#080e18 60%)}
-.brand-intro-flight{position:absolute;left:50%;top:50%;translate:-50% -50%;width:90vw;max-width:640px;height:120px;transform-origin:50% 50%}
-.brand-intro-mark{position:absolute;left:50%;top:50%;translate:-50% -50%;width:120px;height:89px}
-.brand-intro-name{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(32px,7vw,64px);line-height:1.1;font-weight:550;letter-spacing:-.055em;white-space:nowrap;opacity:0}
-.brand-intro-skip{position:absolute;right:24px;bottom:24px;min-height:44px;border:1px solid #ffffff25;border-radius:30px;padding:8px 18px;background:transparent;color:#aab9cd;font:inherit;font-size:14px;cursor:pointer}
-.brand-intro-skip:focus-visible{outline:2px solid #8bbcff;outline-offset:4px}
-@media(prefers-reduced-motion:reduce){.brand-intro{display:none}}
+.brand-intro{position:fixed;inset:0;z-index:100;overflow:hidden;color:#fff3e8;font-family:inherit}
+.brand-intro-scrim{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 48%,#513040 0%,#181319 65%)}
+.brand-intro-flight{position:absolute;left:calc(50% - 68px);top:calc(50% - 136px / 3);width:136px;transform-origin:50% 50%}
+.brand-intro-mark{display:block;width:100%;height:auto}
+.brand-intro-mark path{opacity:0}
+.brand-intro-name{--typed:0%;position:absolute;top:50%;left:calc(50% + 12px);translate:-50% -50%;width:max-content;font:500 clamp(22px,5.8vw,36px)/1.35 var(--font-geist-mono,monospace);white-space:nowrap;opacity:0}
+.brand-intro-text{display:block;clip-path:inset(0 calc(100% - var(--typed)) 0 0)}
+.brand-intro-name::after{content:"";position:absolute;left:var(--typed);bottom:.14em;width:.46em;height:.12em;background:#ffac81}
+.brand-intro-skip{position:absolute;right:24px;bottom:24px;min-height:44px;border:1px solid #ffffff58;border-radius:30px;padding:8px 18px;background:#181319;color:#f5dcd2;font:inherit;font-size:14px;cursor:pointer}
+.brand-intro-skip:focus-visible{outline:2px solid #ffac81;outline-offset:4px}
+[data-intro="playing"] [data-brand-target]{visibility:hidden}
+@media(prefers-reduced-motion:reduce){.brand-intro{display:none}[data-intro="playing"] [data-brand-target]{visibility:visible}}

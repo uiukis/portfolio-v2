@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import localFont from "next/font/local";
 import { MotionScene } from "@/components/ui/motion-scene";
 import { ArrowUpRight } from "lucide-react";
 import {
@@ -14,7 +15,6 @@ import {
 import { useI18n } from "@/providers/i18n-provider";
 import { Section } from "@/components/layout/section";
 import { Badge } from "@/components/ui/badge";
-import { GlowCard } from "@/components/ui/glow-card";
 import {
   Dialog,
   DialogContent,
@@ -22,6 +22,15 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+
+// The lettering Easy Cards uses on its own site.
+const easyCardsLettering = localFont({ src: "../../fonts/LuckiestGuy.ttf", display: "swap" });
+
+const demos: Partial<Record<ProjectId, string>> = {
+  nook: "/projects/nook-demo.mp4",
+  easycards: "/projects/easy-cards.mp4",
+  turno: "/projects/turno.mp4",
+};
 
 type SelectedProject = {
   id: ProjectId;
@@ -34,6 +43,7 @@ type SelectedProject = {
 
 export function SystemsSection() {
   const { t } = useI18n();
+  const detailsTrigger = useRef<HTMLButtonElement>(null);
   const [selected, setSelected] = useState<SelectedProject | null>(null);
 
   return (
@@ -43,113 +53,126 @@ export function SystemsSection() {
       title={t.systems.title}
       description={t.systems.description}
     >
-      <div className="flex flex-col gap-12">
+      <div className="flex flex-col gap-8">
         {t.systems.groups.map((group) => (
           <div key={group.key}>
-            <h3 className="mb-6 text-sm font-medium text-muted">
-              {group.title}
-            </h3>
-            <div
-              className={group.key === "personal" ? "project-grid" : "client-project-list"}
-            >
-              {group.items.map((project) => {
-                const id = project.id;
-                const stack = projectStacks[id];
+            <MotionScene>
+              <h3 className="project-group-title">{group.title}</h3>
+            </MotionScene>
+            <div className="project-list">
+              {group.items.map((project, order) => {
+                const { id, title, category, ownership, description, impact } = project;
+                const image = projectImages[id];
                 const href = projectLinks[id];
 
                 return (
-                  <MotionScene key={id} className="h-full">
-                    <GlowCard className="project-case group">
-                      <article id={`project-${id}`} className="relative flex h-full flex-col overflow-hidden">
-                        {projectImages[id] && (
-                          <div className={`project-preview project-preview-${id}`}>
-                            <Image src={projectImages[id]!.src} alt={projectImages[id]!.alt} width={1080} height={id === "nook" ? 467 : 1076} className="project-preview-image" sizes="(max-width: 768px) 100vw, 560px" />
-                          </div>
-                        )}
-                        <div className="p-7 md:p-9">
-                        <button
-                          type="button"
-                          className="focus-ring absolute inset-0 z-10 rounded-[inherit]"
-                          aria-label={`${t.systems.viewDetails}: ${project.title}`}
-                          onClick={() =>
-                            setSelected({
-                              id,
-                              title: project.title,
-                              category: project.category,
-                              ownership: project.ownership,
-                              impact: project.impact,
-                              description: project.description,
-                            })
-                          }
-                        />
-                        <div className="case-main relative z-0 flex flex-col gap-6">
-                          <div className="flex-1">
-                            <div className="mb-4 flex flex-wrap items-center gap-3">
-                              <Badge variant="accent">{project.category}</Badge>
+                  <MotionScene key={id} stagger>
+                    <article
+                      id={`project-${id}`}
+                      className={`project-story${image ? ` project-story-featured project-story-${id}` : ""}`}
+                      aria-labelledby={`project-title-${id}`}
+                    >
+                      {image && (
+                        <div className="project-stage" data-scene-part data-project={id}>
+                          <span className="project-index" aria-hidden="true">{String(order + 1).padStart(2, "0")}</span>
+                          <span className="project-glow" aria-hidden="true" />
+                          <span className="project-ghost" aria-hidden="true">{title}</span>
+                          <div className="project-frame">
+                            <div className="project-shot">
+                              <Image
+                                src={image.src}
+                                alt={image.alt}
+                                width={id === "nook" ? 1080 : 800}
+                                height={id === "nook" ? 467 : id === "turno" ? 450 : 448}
+                                className="project-stage-image"
+                                sizes="(max-width: 767px) 90vw, 610px"
+                              />
+                              {demos[id] && (
+                                <video className="project-peek" muted loop playsInline preload="none" src={demos[id]} aria-hidden="true" tabIndex={-1} />
+                              )}
                             </div>
-                            <h4 className="text-2xl font-semibold text-foreground transition-colors group-hover:text-accent">
-                              {project.title}
-                            </h4>
-                            {project.ownership ? (
-                              <p className="mt-2 text-sm text-muted-foreground">
-                                {project.ownership}
-                              </p>
-                            ) : null}
-                            <p className="mt-3 max-w-xl leading-relaxed text-muted">
-                              {project.description}
-                            </p>
-                            <p className="mt-4 text-sm font-medium text-accent">
-                              {project.impact}
-                            </p>
-                            <p className="mt-3 text-xs font-medium text-muted-foreground">
-                              {t.systems.viewDetails}
-                            </p>
-                          </div>
-
-                          <div className="flex flex-wrap gap-2">
-                            {stack.map((tech) => (
-                              <span key={tech}
-                                className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-muted transition-colors hover:border-white/20 hover:text-foreground"
-                              >
-                                {tech}
-                              </span>
-                            ))}
+                            <span className="project-brand" aria-hidden="true">
+                              {id === "nook" ? (
+                                <>
+                                  <Image src="/projects/nook-icon.svg" alt="" width={1024} height={1024} unoptimized />
+                                  <span className="project-brand-nook">Nook</span>
+                                </>
+                              ) : id === "turno" ? (
+                                <>
+                                  <Image src="/projects/turno-logo.svg" alt="" width={400} height={400} unoptimized />
+                                  <span className="project-brand-turno">turno</span>
+                                  <span className="project-brand-beta">beta</span>
+                                </>
+                              ) : (
+                                <>
+                                  <Image src="/projects/easy-cards-mascot.webp" alt="" width={480} height={478} unoptimized />
+                                  <span className={`project-brand-easy ${easyCardsLettering.className}`}>Easy Cards</span>
+                                </>
+                              )}
+                            </span>
                           </div>
                         </div>
-
-                        {href ? (
-                          <Link
-                            href={href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="focus-ring absolute right-6 top-6 z-20 text-muted-foreground transition-colors hover:text-accent"
-                            aria-label={`${t.systems.openProject}: ${project.title}`}
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            <ArrowUpRight size={20} aria-hidden="true" />
-                          </Link>
-                        ) : (
-                          <div
-                            className="pointer-events-none absolute right-6 top-6 text-muted-foreground/50 group-hover:text-accent"
-                            aria-hidden="true"
-                          >
-                            <ArrowUpRight size={20} />
-                          </div>
+                      )}
+                      <div className="project-story-copy" data-scene-part>
+                        <p className="project-category">{category}</p>
+                        <h4 id={`project-title-${id}`}>{title}</h4>
+                        {image && (
+                          <svg className="project-scribble" viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true">
+                            <path d="M2 10 C 70 2, 150 13, 298 4" pathLength="1" />
+                          </svg>
                         )}
+                        {ownership && <p className="text-sm text-muted-foreground">{ownership}</p>}
+                        <p className="project-story-description">{description}</p>
+                        {image && <p className="text-sm font-medium text-accent">{impact}</p>}
+                        <div className="project-actions">
+                          <button
+                            type="button"
+                            className="project-detail focus-ring"
+                            aria-label={`${t.systems.viewDetails}: ${title}`}
+                            aria-haspopup="dialog"
+                            onClick={(event) => {
+                              detailsTrigger.current = event.currentTarget;
+                              setSelected(project);
+                            }}
+                          >
+                            {t.systems.viewDetails}
+                          </button>
+                          {href && (
+                            <Link
+                              href={href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="project-link focus-ring"
+                              aria-label={`${t.systems.openProject}: ${title}`}
+                            >
+                              {t.systems.openProject}
+                              <ArrowUpRight size={15} aria-hidden="true" />
+                            </Link>
+                          )}
                         </div>
-                      </article>
-                    </GlowCard>
+                      </div>
+                      <ul className="project-stack">
+                        {projectStacks[id].map((tech) => <li key={tech} data-scene-part>{tech}</li>)}
+                      </ul>
+                    </article>
                   </MotionScene>
                 );
               })}
             </div>
+            {group.note && <p className="project-note">{group.note}</p>}
           </div>
         ))}
       </div>
 
       <Dialog open={selected !== null} onOpenChange={(open) => !open && setSelected(null)}>
         {selected ? (
-          <DialogContent className="max-h-[90dvh] overflow-y-auto">
+          <DialogContent
+            className="max-h-[90dvh] overflow-y-auto"
+            onCloseAutoFocus={(event) => {
+              event.preventDefault();
+              detailsTrigger.current?.focus({ preventScroll: true });
+            }}
+          >
             <DialogHeader>
               <Badge variant="accent" className="mb-3 w-fit">
                 {selected.category}
@@ -160,8 +183,8 @@ export function SystemsSection() {
               ) : null}
               <DialogDescription>{selected.description}</DialogDescription>
             </DialogHeader>
-            {selected.id === "nook" && (
-              <video key={selected.id} controls playsInline preload="none" aria-label={t.systems.watchDemo} className="mx-auto max-h-[45vh] rounded-xl" src="/projects/nook.mp4" />
+            {demos[selected.id] && (
+              <video key={selected.id} controls playsInline preload="none" aria-label={t.systems.watchDemo} className="mx-auto max-h-[45vh] max-w-full rounded-xl" src={demos[selected.id]} />
             )}
             <p className="text-sm font-medium text-accent">{selected.impact}</p>
             <div className="mt-4 flex flex-wrap gap-2">

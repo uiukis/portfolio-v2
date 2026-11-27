@@ -1,12 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
-  <rect width="48" height="48" rx="12" fill="#070b14"/>
-  <text
-    x="24"
-    y="31"
-    text-anchor="middle"
-    fill="#7eb6ff"
-    font-family="system-ui, -apple-system, sans-serif"
-    font-size="22"
-    font-weight="600"
-  >w</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 128 128">
+  <rect width="128" height="128" rx="28" fill="#181319"/>
+  <g transform="translate(4 24)"><path d="M15 21H25L35 49L48 28L60 49L70 21H80L65 59H56L48 44L39 59H29Z" fill="#FFF3E8"/><path d="M79 51H105V59H77Z" fill="#FFAC81"/></g>
 </svg>

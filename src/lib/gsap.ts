@@ -1,15 +1,19 @@
 type TweenVars = Record<string, unknown>;
-type TweenTarget = Element | Element[] | NodeListOf<Element>;
+type TweenTarget = Element | Element[] | NodeListOf<Element> | object;
 
 export interface SceneTimeline {
   play(): SceneTimeline;
   kill(): void;
+  pause(): SceneTimeline;
+  seek(time: number): SceneTimeline;
+  to(target: TweenTarget, vars: TweenVars, position?: number | string): SceneTimeline;
   fromTo(target: TweenTarget, from: TweenVars, to: TweenVars, position?: number | string): SceneTimeline;
 }
 
 export interface SceneGsap {
   context(setup: () => void, scope: Element): { revert(): void };
   timeline(options?: TweenVars): SceneTimeline;
+  to(target: TweenTarget, vars: TweenVars): unknown;
 }
 
 declare global {

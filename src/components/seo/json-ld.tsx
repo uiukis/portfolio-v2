@@ -17,7 +17,6 @@ export function JsonLd() {
       "AI Agent Control Planes",
       "MCP",
       "LLM Systems",
-      "Hermes Runtime",
       "Full Stack Development",
       "NestJS",
       "Event-Driven Architecture",

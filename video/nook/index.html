@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280, height=554">
+<title>Nook · resumo</title>
+<script src="vendor/gsap.min.js"></script>
+<style>
+  @font-face { font-family: "InterB"; src: url("assets/Inter-Bold.ttf"); }
+  body { margin: 0; background: #17142a; }
+  #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: radial-gradient(ellipse at 70% 100%, #4b3a78, #17142a 65%); font-family: "InterB"; color: #f6f2ff; }
+  .scene { position: absolute; inset: 0; }
+  .brand { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 40px; }
+  #icon { display: block; width: 260px; height: 260px; }
+  .brand h1 { margin: 0; font-size: 150px; letter-spacing: -.05em; }
+  .island { position: absolute; left: 290px; top: 0; display: flex; align-items: center; gap: 22px; width: 640px; height: 116px; padding: 0 30px; border-radius: 0 0 34px 34px; background: #08080c; box-shadow: 0 16px 40px #0008; }
+  .mark { font-size: 34px; color: #cfc5f5; }
+  .status { flex: 1; font-size: 28px; position: relative; height: 40px; }
+  .status span { position: absolute; left: 0; top: 0; white-space: nowrap; }
+  .meter { position: relative; width: 150px; height: 40px; font-size: 30px; text-align: right; }
+  .meter span { position: absolute; right: 0; top: 0; white-space: nowrap; }
+  #m1 { color: #b0e5ce; } #m2 { color: #ffcd88; }
+  .nib { position: relative; width: 74px; height: 66px; border-radius: 26px; background: linear-gradient(145deg, #fff, #e8e5fa 66%, #b3a4d5); }
+  .eye { position: absolute; top: 22px; width: 9px; height: 17px; border-radius: 6px; background: #252333; }
+  .e1 { left: 20px; } .e2 { right: 20px; }
+  .mouth { position: absolute; left: 30px; top: 42px; width: 14px; height: 7px; border-bottom: 3px solid #484554; border-radius: 50%; }
+  .headline { position: absolute; left: 0; width: 100%; top: 230px; margin: 0; text-align: center; font-size: 76px; letter-spacing: -.04em; }
+  .sub { position: absolute; left: 0; width: 100%; top: 340px; text-align: center; font-size: 30px; color: #cfc5ee; }
+  .shot { position: absolute; left: 191px; top: 100px; display: block; width: 898px; height: auto; border-radius: 22px; box-shadow: 0 24px 60px #000a; }
+  .label { position: absolute; left: 0; width: 100%; top: 28px; text-align: center; font-size: 40px; }
+  .end { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; position: absolute; inset: 0; }
+  .end p { margin: 0; font-size: 54px; }
+  .end span { padding: 12px 34px; border-radius: 50px; background: #ede4ff; color: #2a1d63; font-size: 30px; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="nook" data-start="0" data-width="1280" data-height="554" data-duration="13">
+  <section class="scene clip" data-start="0" data-duration="2.2" data-track-index="0">
+    <div class="brand" id="brand"><img id="icon" src="assets/nook-icon.svg" alt=""><h1 id="name">Nook</h1></div>
+  </section>
+  <section class="scene clip" data-start="2.2" data-duration="4.3" data-track-index="0">
+    <div class="island" id="island">
+      <span class="mark">›_</span>
+      <div class="status"><span id="s1">Codex trabalhando</span><span id="s2">Tarefa concluída</span></div>
+      <div class="meter"><span id="m1">46% livre</span><span id="m2">12% livre</span></div>
+      <div class="nib" id="nib"><i class="eye e1"></i><i class="eye e2"></i><i class="mouth"></i></div>
+    </div>
+    <h2 class="headline" id="headline">A cota à vista no notch</h2>
+    <div class="sub" id="sub">O Nib reage quando a janela chega perto do limite</div>
+  </section>
+  <section class="scene clip" data-start="6.5" data-duration="4.3" data-track-index="0">
+    <div class="label" id="l1">Agentes em atividade</div>
+    <div class="label" id="l2">Cotas de uso</div>
+    <div class="label" id="l3">Música, sem trocar de janela</div>
+    <img class="shot" id="sh1" src="assets/sessions.png" alt="" data-layout-allow-overflow>
+    <img class="shot" id="sh2" src="assets/usage.png" alt="" data-layout-allow-overflow>
+    <img class="shot" id="sh3" src="assets/music.png" alt="" data-layout-allow-overflow>
+  </section>
+  <section class="scene clip" data-start="10.8" data-duration="2.2" data-track-index="0">
+    <div class="end" id="end"><p>Nook · macOS e Windows</p><span>nook-notch-beta.vercel.app</span></div>
+  </section>
+</div>
+<script>
+  const tl = gsap.timeline({ paused: true });
+  tl.fromTo("#icon", { scale: .6, rotation: -12 }, { scale: 1, rotation: 0, duration: .7, ease: "back.out(1.7)" }, 0);
+  tl.fromTo("#name", { x: 80, opacity: 0 }, { x: 0, opacity: 1, duration: .6, ease: "power3.out" }, .35);
+  tl.to("#brand", { y: -60, opacity: 0, duration: .3, ease: "power2.in" }, 1.88);
+  tl.fromTo("#island", { scaleX: .35, scaleY: .5, transformOrigin: "50% 0%" }, { scaleX: 1, scaleY: 1, duration: .6, ease: "back.out(1.4)" }, 2.2);
+  tl.fromTo("#headline", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: .5, ease: "power3.out" }, 2.4);
+  tl.fromTo("#sub", { opacity: 0 }, { opacity: 1, duration: .4 }, 2.8);
+  tl.set("#s2", { opacity: 0 }, 0).set("#m2", { opacity: 0 }, 0);
+  tl.to("#m1", { opacity: 0, duration: .2 }, 3.8).to("#m2", { opacity: 1, duration: .2 }, 4);
+  tl.to("#nib", { rotation: -12, duration: .3 }, 4).to(".eye", { x: -5, scaleY: .7, duration: .3 }, 4);
+  tl.to("#s1", { opacity: 0, duration: .2 }, 5.1).to("#s2", { opacity: 1, duration: .2 }, 5.3);
+  tl.to("#nib", { rotation: 0, y: -18, repeat: 3, yoyo: true, duration: .18 }, 5.3).to(".eye", { x: 0, scaleY: .35, duration: .2 }, 5.3);
+  tl.set(["#l2", "#l3"], { opacity: 0 }, 0);
+  tl.fromTo("#sh1", { y: 500, rotation: 5 }, { y: 0, rotation: 0, duration: .7, ease: "power3.out" }, 6.5);
+  tl.set(["#sh2", "#sh3"], { x: 1300 }, 0);
+  tl.to("#sh1", { x: -1300, rotation: -4, duration: .55, ease: "power3.inOut" }, 7.9).to("#sh2", { x: 0, duration: .55, ease: "power3.inOut" }, 7.9);
+  tl.to("#l1", { opacity: 0, duration: .2 }, 7.9).to("#l2", { opacity: 1, duration: .2 }, 8.15);
+  tl.to("#sh2", { x: -1300, rotation: -4, duration: .55, ease: "power3.inOut" }, 9.35).to("#sh3", { x: 0, duration: .55, ease: "power3.inOut" }, 9.35);
+  tl.to("#l2", { opacity: 0, duration: .2 }, 9.35).to("#l3", { opacity: 1, duration: .2 }, 9.6);
+  tl.fromTo("#end", { scale: .85, opacity: 0 }, { scale: 1, opacity: 1, duration: .55, ease: "back.out(1.5)" }, 10.85);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["nook"] = tl;
+</script>
+</body>
+</html>

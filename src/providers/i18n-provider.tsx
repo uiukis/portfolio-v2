@@ -6,7 +6,7 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useRef,
+  useSyncExternalStore,
   useState,
 } from "react";
 import {
@@ -29,47 +29,46 @@ const I18nContext = createContext<I18nContextValue | null>(null);
 function resolveInitialLocale(): Locale {
   if (typeof window === "undefined") return defaultLocale;
 
-  const stored = localStorage.getItem(LOCALE_STORAGE_KEY);
-  if (stored && isLocale(stored)) return stored;
+  try {
+    const stored = localStorage.getItem(LOCALE_STORAGE_KEY);
+    if (stored && isLocale(stored)) return stored;
+  } catch {
+    // Storage can be unavailable in restricted browsing contexts.
+  }
 
   const browserLang = navigator.language.toLowerCase();
   if (browserLang.startsWith("pt")) return "pt";
   return "en";
 }
 
-export function I18nProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(defaultLocale);
-  const [localeTick, setLocaleTick] = useState(0);
-  const [mounted, setMounted] = useState(false);
-  const isFirstLocale = useRef(true);
+function subscribeToStorage(onChange: () => void) {
+  window.addEventListener("storage", onChange);
+  return () => window.removeEventListener("storage", onChange);
+}
 
-  useEffect(() => {
-    setLocaleState(resolveInitialLocale());
-    setMounted(true);
-  }, []);
+export function I18nProvider({ children }: { children: React.ReactNode }) {
+  const initialLocale = useSyncExternalStore(
+    subscribeToStorage,
+    resolveInitialLocale,
+    () => defaultLocale,
+  );
+  const [selection, setSelection] = useState<{ locale: Locale; tick: number }>();
+  const locale = selection?.locale ?? initialLocale;
+  const localeTick = selection?.tick ?? 0;
 
   const setLocale = useCallback((next: Locale) => {
-    setLocaleState((current) => {
-      if (current === next) return current;
+    if (next === locale) return;
+    setSelection((current) => ({ locale: next, tick: (current?.tick ?? 0) + 1 }));
+    try {
       localStorage.setItem(LOCALE_STORAGE_KEY, next);
-      document.documentElement.lang = next === "pt" ? "pt-BR" : "en";
-      return next;
-    });
-  }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
-    document.documentElement.lang = locale === "pt" ? "pt-BR" : "en";
-  }, [locale, mounted]);
-
-  useEffect(() => {
-    if (!mounted) return;
-    if (isFirstLocale.current) {
-      isFirstLocale.current = false;
-      return;
+    } catch {
+      // The current page can still switch languages without persistence.
     }
-    setLocaleTick((tick) => tick + 1);
-  }, [locale, mounted]);
+  }, [locale]);
+
+  useEffect(() => {
+    document.documentElement.lang = locale === "pt" ? "pt-BR" : "en";
+  }, [locale]);
 
   const value = useMemo(
     () => ({

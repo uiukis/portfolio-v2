@@ -46,7 +46,6 @@ export type Dictionary = {
   };
   hero: {
     featuredLabel: string;
-    currentRole: string;
     bootLabel: string;
     bootTag: string;
     bootSuffix: string;
@@ -124,6 +123,7 @@ export type Dictionary = {
     groups: Array<{
       key: "personal" | "client";
       title: string;
+      note?: string;
       items: Array<{
         id: ProjectId;
         title: string;

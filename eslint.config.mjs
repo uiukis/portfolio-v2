@@ -12,6 +12,12 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Third-party and prebuilt preview bundles.
+    "public/vendor/gsap.min.js",
+    "docs/previas/assets/gsap.min.js",
+    "docs/preview/app.js",
+    // HyperFrames video project (its own HTML + vendored GSAP).
+    "video/**",
   ]),
 ]);
 

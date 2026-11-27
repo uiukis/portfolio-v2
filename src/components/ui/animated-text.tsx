@@ -21,11 +21,7 @@ function useTypewriterText(targetText: string, enabled: boolean, localeTick: num
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
-    if (!enabled || reduced) {
-      setDisplay(targetText);
-      setIsAnimating(false);
-      return;
-    }
+    if (!enabled || reduced) return;
 
     let cancelled = false;
 
@@ -41,11 +37,11 @@ function useTypewriterText(targetText: string, enabled: boolean, localeTick: num
       if (!cancelled) setIsAnimating(false);
     };
 
-    void run();
+    const frame = requestAnimationFrame(() => void run());
 
     return () => {
       cancelled = true;
-      setIsAnimating(false);
+      cancelAnimationFrame(frame);
     };
   }, [targetText, enabled, reduced, localeTick]);
 
